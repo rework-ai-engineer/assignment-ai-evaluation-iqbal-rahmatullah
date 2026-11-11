@@ -115,7 +115,7 @@ Harga resmi Google (halaman pricing, dibaca 11 Nov 2026 di https://aistudio.goog
 
 - **Output hanya 10% token tetapi 47% biaya**, karena harga output 8,3× input. Output sudah pendek (28 token), jadi penghematan terbesar ada pada **mengurangi jumlah panggilan**, bukan memendekkan jawaban.
 - Angka ini adalah **biaya per panggilan**, bukan proyeksi trafik: proporsi skenario di data ini bukan proporsi produksi (skenario sengaja condong ke kasus tepi), sehingga tidak ada dasar untuk menghitung total bulanan.
-- Pada tier gratis biayanya nol, tetapi kuota menjadi batas: sekali teramati `429 RESOURCE_EXHAUSTED` saat build index berulang kali dalam satu menit pada uji runner (setiap start proses membangun index = 31 request embedding; batas sekitar 100 request/menit berasal dari catatan Assignment 4, tidak diverifikasi ulang).
+- Pada tier gratis biayanya nol, tetapi **kuota menjadi batas nyata**. Terverifikasi dari pesan error `429 RESOURCE_EXHAUSTED` (11 Nov 2026): kuota embedding `EmbedContentRequestsPerDayPerUserPerProjectPerModel-FreeTier` = **1.000 request per hari**, dan habis setelah rangkaian run evaluasi. Penyebab terbesarnya: setiap start proses membangun index dengan 31 request embedding (3,1% kuota harian per start), ditambah 1 request per query. Pada Step 2 juga pernah teramati `429`, tetapi kuota yang saat itu terlampaui tidak tercatat (traceback terpotong); batas sekitar 100 request/menit di catatan Assignment 4 tidak diverifikasi ulang.
 
 ## 7. Batas analisis
 

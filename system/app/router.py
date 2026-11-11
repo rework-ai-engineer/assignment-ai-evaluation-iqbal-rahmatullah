@@ -16,13 +16,19 @@ _TICKET_ID_RE = re.compile(r"\bTICKET-\d+\b", re.IGNORECASE)
 
 _AKSI_CEK = ("status", "cek", "check", "progress", "perkembangan", "sampai mana")
 
+# Rujukan ke tiket milik sendiri ("tiket saya", "tiketku") dianggap menanyakan statusnya walau tanpa kata aksi,
+# kecuali pertanyaan "cara ..." (mis. "cara menutup tiket saya") yang tetap ke FAQ.
+_TIKET_SAYA = re.compile(r"\b(?:tiket|ticket)\s+(?:saya|aku)\b|\b(?:tiket|ticket)ku\b", re.IGNORECASE)
+_CARA = re.compile(r"\bcara\b", re.IGNORECASE)
+
 ASK_TICKET_ID = 'Mohon sebutkan ID tiket Anda (format TICKET-XXXX), misalnya: "Cek status TICKET-0005".'
 
 
 async def detect_intent(query: str) -> str:
     q = query.lower()
     menyebut_tiket = "tiket" in q or "ticket" in q
-    if _TICKET_ID_RE.search(query) or (menyebut_tiket and any(k in q for k in _AKSI_CEK)):
+    tiket_saya = bool(_TIKET_SAYA.search(query)) and not _CARA.search(query)
+    if _TICKET_ID_RE.search(query) or tiket_saya or (menyebut_tiket and any(k in q for k in _AKSI_CEK)):
         return "ticket_status"
     return "faq"
 

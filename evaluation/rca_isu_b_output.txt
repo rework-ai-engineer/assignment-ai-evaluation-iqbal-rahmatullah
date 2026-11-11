@@ -1,0 +1,114 @@
+Keluaran eksperimen root cause ISU-B (rca_isu_b.py) terhadap kode "before" (commit dfbceb9). Tiga run digabung apa adanya
+(bagian data tidak diubah; hanya traceback bug skrip pada Run 2 diganti satu baris catatan):
+  Run 1: kondisi C0-C2 (LLM saja, tanpa embedding; dijalankan saat kuota embedding habis)
+  Run 2: kondisi C0-C2 diulang + E1 dan E1b (retrieval)
+  Run 3: E1, E1b, dan kondisi C4-C7 (retrieval + LLM)
+Hasil C0-C2 di dokumen memakai gabungan Run 1 dan Run 2 (C0 4 percobaan, C1 dan C2 masing-masing 6).
+
+======================== RUN 1 ========================
+system: /private/tmp/claude-501/-Users-iqbalrahmatullah-Desktop-rework-ai-engineering-individual-assignment5/b04cb7d7-67c7-4982-acb3-bbf412c08d78/scratchpad/before_snapshot/system
+persona: 'Kamu adalah asisten IT Helpdesk internal perusahaan. Gaya bicaramu ramah, ringkas, dan aku'...
+QUERY EVAL-11: Tolong jelaskan sedetail-detailnya seluruh kebijakan cuti, reset password, permintaan perangkat, dan proses onboarding sekaligus dalam satu jawaban.
+
+=== E2. LLM dengan konteks yang dipilih (tanpa embedding)
+
+[C0 top-3 terekam dari retrieval EVAL-11 (kontrol: harus menolak seperti sistem)] FAQ=[12, 19, 23] topik tercakup=2/4
+  run 1: prompt_tokens=276 ditolak=True | 'Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.'
+  run 2: prompt_tokens=276 ditolak=True | 'Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.'
+
+[C1 konteks 'oracle' minimal: 1 FAQ per topik] FAQ=[1, 12, 14, 19] topik tercakup=4/4
+  run 1: prompt_tokens=322 ditolak=False | 'Karyawan tetap mendapat jatah 12 hari cuti tahunan setelah masa kerja minimal 3 bulan. Untuk reset password akun laptop, silakan hubungi tim IT Support melalui tiket untuk verifikasi identitas. Permintaan laptop baru diajukan melalui tiket IT dengan persetujua'
+  run 2: prompt_tokens=322 ditolak=False | 'Karyawan tetap mendapat jatah 12 hari cuti tahunan setelah masa kerja minimal 3 bulan. Untuk reset password laptop, silakan hubungi tim IT Support melalui tiket untuk proses verifikasi dan pemulihan akun. Permintaan laptop baru diajukan melalui tiket IT dengan'
+  run 3: prompt_tokens=322 ditolak=False | 'Karyawan tetap mendapat jatah 12 hari cuti tahunan setelah masa kerja minimal 3 bulan. Jika lupa password akun laptop, silakan hubungi tim IT Support melalui tiket untuk proses reset setelah verifikasi identitas. Permintaan laptop baru diajukan melalui tiket I'
+
+[C2 konteks 'oracle' 8 FAQ: 2 per topik] FAQ=[1, 2, 8, 12, 14, 15, 19, 31] topik tercakup=5/4
+  run 1: prompt_tokens=487 ditolak=False | 'Karyawan tetap mendapat 12 hari cuti tahunan setelah masa kerja 3 bulan, yang diajukan lewat portal HR minimal 3 hari kerja sebelum tanggal cuti dengan persetujuan atasan. Reset password VPN dapat dilakukan lewat portal self-service IT atau IT Support jika ter'
+  run 2: prompt_tokens=487 ditolak=False | 'Karyawan tetap mendapat 12 hari cuti tahunan setelah masa kerja 3 bulan yang diajukan lewat portal HR minimal 3 hari sebelumnya. Reset password VPN dapat dilakukan mandiri via portal *self-service* IT atau menghubungi IT Support jika terkunci, sedangkan reset '
+  run 3: prompt_tokens=487 ditolak=False | 'Karyawan tetap mendapat jatah 12 hari cuti tahunan setelah bekerja minimal 3 bulan, yang diajukan lewat portal HR minimal 3 hari sebelumnya dengan persetujuan atasan. Untuk IT, reset password VPN dilakukan via portal self-service atau IT Support, sedangkan pas'
+
+======================== RUN 2 ========================
+system: /private/tmp/claude-501/-Users-iqbalrahmatullah-Desktop-rework-ai-engineering-individual-assignment5/b04cb7d7-67c7-4982-acb3-bbf412c08d78/scratchpad/before_snapshot/system
+persona: 'Kamu adalah asisten IT Helpdesk internal perusahaan. Gaya bicaramu ramah, ringkas, dan aku'...
+QUERY EVAL-11: Tolong jelaskan sedetail-detailnya seluruh kebijakan cuti, reset password, permintaan perangkat, dan proses onboarding sekaligus dalam satu jawaban.
+
+=== E2. LLM dengan konteks yang dipilih (tanpa embedding)
+
+[C0 top-3 terekam dari retrieval EVAL-11 (kontrol: harus menolak seperti sistem)] FAQ=[12, 19, 23] topik tercakup=2/4
+  run 1: prompt_tokens=276 ditolak=True | 'Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.'
+  run 2: prompt_tokens=276 ditolak=True | 'Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.'
+
+[C1 konteks 'oracle' minimal: 1 FAQ per topik] FAQ=[1, 12, 14, 19] topik tercakup=4/4
+  run 1: prompt_tokens=322 ditolak=False | 'Karyawan tetap mendapat jatah 12 hari cuti tahunan setelah masa kerja minimal 3 bulan. Jika lupa password akun laptop, silakan hubungi tim IT Support melalui tiket untuk proses reset setelah verifikasi identitas. Permintaan laptop baru diajukan melalui tiket I'
+  run 2: prompt_tokens=322 ditolak=False | 'Karyawan tetap mendapat jatah 12 hari cuti tahunan setelah masa kerja minimal 3 bulan. Jika lupa password akun laptop, silakan hubungi tim IT Support melalui tiket untuk proses reset setelah verifikasi identitas. Permintaan laptop baru diajukan lewat tiket IT '
+  run 3: prompt_tokens=322 ditolak=False | 'Karyawan tetap mendapat jatah 12 hari cuti tahunan setelah masa kerja minimal 3 bulan. Untuk reset password akun laptop, silakan hubungi tim IT Support melalui tiket untuk verifikasi identitas. Permintaan laptop baru diajukan melalui tiket IT dengan persetujua'
+
+[C2 konteks 'oracle' 8 FAQ: 2 per topik] FAQ=[1, 2, 8, 12, 14, 15, 19, 31] topik tercakup=5/4
+  run 1: prompt_tokens=487 ditolak=True | 'Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.'
+  run 2: prompt_tokens=487 ditolak=False | 'Karyawan tetap mendapat 12 hari cuti tahunan setelah masa kerja 3 bulan, yang diajukan lewat portal HR minimal 3 hari kerja sebelum tanggal cuti dengan persetujuan atasan. Reset password VPN dapat dilakukan lewat portal self-service IT atau IT Support jika ter'
+  run 3: prompt_tokens=487 ditolak=False | 'Karyawan tetap mendapat jatah cuti 12 hari setelah masa kerja minimal 3 bulan, yang diajukan lewat portal HR minimal 3 hari kerja sebelumnya. Reset password VPN dapat dilakukan lewat portal self-service IT atau IT Support, sedangkan reset password laptop memer'
+
+=== E1. Retrieval: query majemuk (satu embedding), top-8
+  #1 FAQ 12 skor=0.7287 [Akses & Password] Bagaimana jika lupa password akun laptop kerja?
+  #2 FAQ 19 skor=0.7195 [Onboarding & HR] Apa saja yang perlu disiapkan karyawan baru di hari per
+  #3 FAQ 23 skor=0.7114 [Onboarding & HR] Bagaimana cara mengajukan reimbursement biaya kerja?
+  #4 FAQ 10 skor=0.7085 [Akses & Password] Bagaimana cara mendapatkan akses ke sistem internal bar
+  #5 FAQ 18 skor=0.7047 [Perangkat & Equipment] Bagaimana prosedur pengembalian perangkat saat resign?
+  #6 FAQ  2 skor=0.7025 [Cuti & Absensi] Bagaimana cara mengajukan cuti?
+  #7 FAQ 11 skor=0.7017 [Akses & Password] Apakah password wajib diganti secara berkala?
+  #8 FAQ  8 skor=0.7005 [Akses & Password] Bagaimana cara reset password VPN perusahaan?
+  top-3: 2/4 topik tercakup: ['Akses & Password', 'Onboarding & HR']
+  top-5: 3/4 topik tercakup: ['Akses & Password', 'Onboarding & HR', 'Perangkat & Equipment']
+  top-8: 4/4 topik tercakup: ['Akses & Password', 'Cuti & Absensi', 'Onboarding & HR', 'Perangkat & Equipment']
+
+=== E1b. Retrieval: tiap topik dicari sendiri (top-3)
+  'kebijakan cuti': FAQ [28, 2, 1] skor=[0.759, 0.75, 0.747] | peringkat 1 kategori benar: False
+  'reset password': FAQ [8, 12, 11] skor=[0.674, 0.671, 0.641] | peringkat 1 kategori benar: True
+  'permintaan perangkat': FAQ [14, 15, 16] skor=[0.746, 0.693, 0.693] | peringkat 1 kategori benar: True
+  'proses onboarding': FAQ [23, 19, 31] skor=[0.723, 0.717, 0.711] | peringkat 1 kategori benar: True
+
+[C4 top-6 query majemuk] FAQ=[12, 19, 23, 10, 18, 2] topik tercakup=4/4
+[run ini berhenti di kondisi C4: bug skrip (dua kali asyncio.run), sudah diperbaiki; C4-C7 dijalankan ulang pada Run 3. Traceback dihapus.]
+
+======================== RUN 3 ========================
+system: /private/tmp/claude-501/-Users-iqbalrahmatullah-Desktop-rework-ai-engineering-individual-assignment5/b04cb7d7-67c7-4982-acb3-bbf412c08d78/scratchpad/before_snapshot/system
+persona: 'Kamu adalah asisten IT Helpdesk internal perusahaan. Gaya bicaramu ramah, ringkas, dan aku'...
+QUERY EVAL-11: Tolong jelaskan sedetail-detailnya seluruh kebijakan cuti, reset password, permintaan perangkat, dan proses onboarding sekaligus dalam satu jawaban.
+
+=== E1. Retrieval: query majemuk (satu embedding), top-8
+  #1 FAQ 12 skor=0.7287 [Akses & Password] Bagaimana jika lupa password akun laptop kerja?
+  #2 FAQ 19 skor=0.7195 [Onboarding & HR] Apa saja yang perlu disiapkan karyawan baru di hari per
+  #3 FAQ 23 skor=0.7114 [Onboarding & HR] Bagaimana cara mengajukan reimbursement biaya kerja?
+  #4 FAQ 10 skor=0.7085 [Akses & Password] Bagaimana cara mendapatkan akses ke sistem internal bar
+  #5 FAQ 18 skor=0.7047 [Perangkat & Equipment] Bagaimana prosedur pengembalian perangkat saat resign?
+  #6 FAQ  2 skor=0.7025 [Cuti & Absensi] Bagaimana cara mengajukan cuti?
+  #7 FAQ 11 skor=0.7017 [Akses & Password] Apakah password wajib diganti secara berkala?
+  #8 FAQ  8 skor=0.7005 [Akses & Password] Bagaimana cara reset password VPN perusahaan?
+  top-3: 2/4 topik tercakup: ['Akses & Password', 'Onboarding & HR']
+  top-5: 3/4 topik tercakup: ['Akses & Password', 'Onboarding & HR', 'Perangkat & Equipment']
+  top-8: 4/4 topik tercakup: ['Akses & Password', 'Cuti & Absensi', 'Onboarding & HR', 'Perangkat & Equipment']
+
+=== E1b. Retrieval: tiap topik dicari sendiri (top-3)
+  'kebijakan cuti': FAQ [28, 2, 1] skor=[0.759, 0.75, 0.747] | peringkat 1 kategori benar: False
+  'reset password': FAQ [8, 12, 11] skor=[0.674, 0.671, 0.641] | peringkat 1 kategori benar: True
+  'permintaan perangkat': FAQ [14, 15, 16] skor=[0.746, 0.693, 0.693] | peringkat 1 kategori benar: True
+  'proses onboarding': FAQ [23, 19, 31] skor=[0.723, 0.717, 0.711] | peringkat 1 kategori benar: True
+
+[C4 top-6 query majemuk] FAQ=[12, 19, 23, 10, 18, 2] topik tercakup=4/4
+  run 1: prompt_tokens=414 ditolak=True | 'Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.'
+  run 2: prompt_tokens=414 ditolak=True | 'Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.'
+  run 3: prompt_tokens=414 ditolak=True | 'Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.'
+
+[C5 top-8 query majemuk] FAQ=[12, 19, 23, 10, 18, 2, 11, 8] topik tercakup=4/4
+  run 1: prompt_tokens=489 ditolak=True | 'Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.'
+  run 2: prompt_tokens=489 ditolak=True | 'Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.'
+  run 3: prompt_tokens=489 ditolak=True | 'Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.'
+
+[C6 multi-query: top-2 per topik, digabung] FAQ=[28, 2, 8, 12, 14, 15, 23, 19] topik tercakup=5/4
+  run 1: prompt_tokens=489 ditolak=False | 'Cuti melahirkan diberikan 3 bulan dan cuti paternity 2 hari kerja, yang diajukan lewat portal HR minimal 3 hari kerja sebelum tanggal cuti dengan persetujuan atasan. Reset password VPN dapat dilakukan mandiri di portal self-service IT atau menghubungi IT Suppo'
+  run 2: prompt_tokens=489 ditolak=True | 'Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.'
+  run 3: prompt_tokens=489 ditolak=False | 'Cuti melahirkan diberikan 3 bulan dan cuti paternity 2 hari kerja, yang diajukan lewat portal HR minimal 3 hari sebelumnya. Reset password VPN dapat dilakukan mandiri lewat portal self-service atau menghubungi IT Support jika terkunci, sedangkan reset password'
+
+[C7 top-3 query majemuk + top-1 per topik, digabung] FAQ=[12, 19, 23, 28, 8, 14] topik tercakup=4/4
+  run 1: prompt_tokens=402 ditolak=True | 'Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.'
+  run 2: prompt_tokens=402 ditolak=True | 'Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.'
+  run 3: prompt_tokens=402 ditolak=False | 'Untuk reset password laptop, silakan hubungi tim IT Support via tiket, sedangkan password VPN dapat direset mandiri melalui portal self-service IT atau menghubungi IT Support jika terkunci. Permintaan laptop baru diajukan melalui tiket IT dengan justifikasi, p'

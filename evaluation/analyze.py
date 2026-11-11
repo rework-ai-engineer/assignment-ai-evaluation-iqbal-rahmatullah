@@ -16,7 +16,7 @@ args = ap.parse_args()
 # Harga resmi Google (halaman pricing, 11 Nov 2026), USD per 1 juta token, paid tier standard.
 PRICE_IN, PRICE_OUT = 0.30, 2.50
 NOT_FOUND = "Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR."
-PERSONA = re.search(r'PERSONA = "(.*)"', (EV.parent / "system/app/rag.py").read_text(encoding="utf-8")).group(1)
+PERSONA = "Kamu adalah asisten IT Helpdesk internal perusahaan. Gaya bicaramu ramah, ringkas, dan akurat."
 
 
 def load(csv_path, raw_path, source):

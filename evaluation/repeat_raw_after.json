@@ -1,0 +1,1555 @@
+{
+  "meta": {
+    "run_at": "2026-11-11T08:48:49+07:00",
+    "gen_model": "gemini-3.5-flash-lite",
+    "embed_model": "gemini-embedding-001",
+    "min_score": 0.65,
+    "python": "3.12.2",
+    "cold_start": {
+      "build_index_s": 1.969,
+      "embed_attempts": 1
+    }
+  },
+  "results": [
+    {
+      "scenario_id": "EVAL-01",
+      "category": "Relevansi Dasar",
+      "query": "berapa jatah cuti tahunan saya?",
+      "expected_behavior_note": "Sistem menjawab sesuai FAQ cuti (12 hari) dengan akurat",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Halo! Sebagai karyawan tetap, Anda mendapat jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan.",
+      "response_time_s": 3.818,
+      "retrieval_s": 0.431,
+      "llm_call_s": 3.369,
+      "other_s": 0.018,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "1;7;6",
+      "top_score": 0.7888,
+      "prompt_chars": 1066,
+      "prompt_tokens": 329,
+      "output_tokens": 29,
+      "thinking_tokens": null,
+      "total_tokens": 358,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 1,
+            "score": 0.7888
+          },
+          {
+            "faq_id": 7,
+            "score": 0.7622
+          },
+          {
+            "faq_id": 6,
+            "score": 0.7551
+          }
+        ],
+        "embed_s": [
+          0.419
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 1] Berapa jatah cuti tahunan karyawan tetap?\nKaryawan tetap mendapat jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan.\n\n[FAQ 7] Apakah cuti bersama/libur nasional mengurangi jatah cuti tahunan?\nCuti bersama dan libur nasional tidak mengurangi jatah cuti tahunan karyawan.\n\n[FAQ 6] Bagaimana cara melihat sisa cuti yang saya miliki?\nSisa cuti dapat dilihat secara real-time melalui portal HR pada menu 'Ringkasan Cuti Saya'.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nberapa jatah cuti tahunan saya?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-04",
+      "category": "Di Luar Cakupan",
+      "query": "apakah kantor menyediakan tempat parkir motor gratis?",
+      "expected_behavior_note": "Sistem mengakui tidak punya informasi tsb,bukan mengarang jawaban (deteksi hallucination)",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.",
+      "response_time_s": 8.908,
+      "retrieval_s": 0.525,
+      "llm_call_s": 8.375,
+      "other_s": 0.009,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "25;13;27",
+      "top_score": 0.6615,
+      "prompt_chars": 1178,
+      "prompt_tokens": 335,
+      "output_tokens": 21,
+      "thinking_tokens": null,
+      "total_tokens": 356,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 25,
+            "score": 0.6615
+          },
+          {
+            "faq_id": 13,
+            "score": 0.6544
+          },
+          {
+            "faq_id": 27,
+            "score": 0.6413
+          }
+        ],
+        "embed_s": [
+          0.52
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 25] Apakah perusahaan menerapkan kebijakan kerja hybrid?\nYa, karyawan dapat bekerja dari rumah maksimal 2 hari per minggu sesuai kesepakatan dengan atasan masing-masing tim.\n\n[FAQ 13] Apakah bisa mengakses sistem internal dari luar kantor?\nAkses dari luar kantor memerlukan koneksi VPN aktif yang sudah terinstal pada perangkat kerja resmi.\n\n[FAQ 27] Apakah ada kebijakan lembur dan kompensasinya?\nLembur yang disetujui atasan akan dikompensasi sesuai regulasi ketenagakerjaan yang berlaku, dihitung berdasarkan jam kerja tambahan yang tercatat.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\napakah kantor menyediakan tempat parkir motor gratis?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-05",
+      "category": "Di Luar Cakupan",
+      "query": "siapa nama CEO perusahaan ini?",
+      "expected_behavior_note": "Sistem tidak boleh mengarang nama; harus mengakui keterbatasan informasi",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.",
+      "response_time_s": 4.156,
+      "retrieval_s": 0.533,
+      "llm_call_s": 3.619,
+      "other_s": 0.005,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "24;25;17",
+      "top_score": 0.6503,
+      "prompt_chars": 1195,
+      "prompt_tokens": 335,
+      "output_tokens": 21,
+      "thinking_tokens": null,
+      "total_tokens": 356,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 24,
+            "score": 0.6503
+          },
+          {
+            "faq_id": 25,
+            "score": 0.6332
+          },
+          {
+            "faq_id": 17,
+            "score": 0.6235
+          }
+        ],
+        "embed_s": [
+          0.532
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 24] Kepada siapa saya melapor jika ada masalah dengan atasan langsung?\nMasalah dengan atasan dapat dilaporkan ke HR Business Partner masing-masing departemen atau melalui kanal pengaduan rahasia perusahaan.\n\n[FAQ 25] Apakah perusahaan menerapkan kebijakan kerja hybrid?\nYa, karyawan dapat bekerja dari rumah maksimal 2 hari per minggu sesuai kesepakatan dengan atasan masing-masing tim.\n\n[FAQ 17] Apakah karyawan bisa menginstal software pribadi di laptop kerja?\nInstalasi software di luar daftar yang disetujui perusahaan memerlukan izin tertulis dari tim IT Security terlebih dahulu.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nsiapa nama CEO perusahaan ini?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-08",
+      "category": "Tool Call Ambigu",
+      "query": "tiket saya gimana ya?",
+      "expected_behavior_note": "Sistem meminta klarifikasi ID tiket,bukan menebak",
+      "http_status": 200,
+      "intent": "ticket_status",
+      "status": "error",
+      "response": "Mohon sebutkan ID tiket Anda (format TICKET-XXXX), misalnya: \"Cek status TICKET-0005\".",
+      "response_time_s": 0.007,
+      "retrieval_s": null,
+      "llm_call_s": null,
+      "other_s": 0.007,
+      "llm_called": false,
+      "embed_attempts": 0,
+      "llm_attempts": 0,
+      "top_faq_ids": null,
+      "top_score": null,
+      "prompt_chars": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": null,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [],
+        "embed_s": [],
+        "prompt": null,
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-10",
+      "category": "Konsistensi",
+      "query": "berapa hari cuti tahunan yang saya dapat?",
+      "expected_behavior_note": "Jawaban harus konsisten dengan EVAL-01 meski kalimat beda",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Halo! Sebagai karyawan tetap, Anda mendapat jatah cuti tahunan sebanyak 12 hari yang dapat diambil setelah masa kerja minimal 3 bulan.",
+      "response_time_s": 1.557,
+      "retrieval_s": 0.524,
+      "llm_call_s": 1.027,
+      "other_s": 0.006,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "1;7;3",
+      "top_score": 0.7963,
+      "prompt_chars": 1116,
+      "prompt_tokens": 334,
+      "output_tokens": 30,
+      "thinking_tokens": null,
+      "total_tokens": 364,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 1,
+            "score": 0.7963
+          },
+          {
+            "faq_id": 7,
+            "score": 0.7558
+          },
+          {
+            "faq_id": 3,
+            "score": 0.7541
+          }
+        ],
+        "embed_s": [
+          0.523
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 1] Berapa jatah cuti tahunan karyawan tetap?\nKaryawan tetap mendapat jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan.\n\n[FAQ 7] Apakah cuti bersama/libur nasional mengurangi jatah cuti tahunan?\nCuti bersama dan libur nasional tidak mengurangi jatah cuti tahunan karyawan.\n\n[FAQ 3] Apakah cuti yang tidak terpakai bisa dibawa ke tahun berikutnya?\nSisa cuti dapat dibawa maksimal 6 hari ke tahun berikutnya, dan harus digunakan dalam kuartal pertama tahun tersebut.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nberapa hari cuti tahunan yang saya dapat?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-11",
+      "category": "Beban Panjang",
+      "query": "Tolong jelaskan sedetail-detailnya seluruh kebijakan cuti, reset password, permintaan perangkat, dan proses onboarding sekaligus dalam satu jawaban.",
+      "expected_behavior_note": "Amati waktu respons dan apakah jawaban tetap relevan atau melebar ke luar konteks",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Cuti melahirkan diberikan 3 bulan dan cuti paternity 2 hari kerja, sementara pengajuannya dilakukan lewat portal HR minimal 3 hari sebelumnya. Reset password VPN dapat dilakukan lewat portal self-service IT atau IT Support, sedangkan reset password laptop memerlukan tiket ke tim IT Support. Permintaan laptop baru diajukan melalui tiket IT dengan persetujuan manajer dan IT Asset, dan jika rusak perlu dilaporkan dengan kategori 'Hardware Issue'. Untuk onboarding, karyawan baru perlu membawa dokumen identitas asli pada hari pertama untuk verifikasi.",
+      "response_time_s": 4.218,
+      "retrieval_s": 0.415,
+      "llm_call_s": 3.363,
+      "other_s": 0.441,
+      "llm_called": true,
+      "embed_attempts": 2,
+      "llm_attempts": 1,
+      "top_faq_ids": "12;19;23",
+      "top_score": 0.7287,
+      "prompt_chars": 2267,
+      "prompt_tokens": 561,
+      "output_tokens": 107,
+      "thinking_tokens": null,
+      "total_tokens": 668,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 12,
+            "score": 0.7287
+          },
+          {
+            "faq_id": 19,
+            "score": 0.7195
+          },
+          {
+            "faq_id": 23,
+            "score": 0.7114
+          }
+        ],
+        "embed_s": [
+          0.414,
+          0.431
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 28] Bagaimana kebijakan penggunaan cuti melahirkan/paternity leave?\nCuti melahirkan diberikan 3 bulan sesuai regulasi, sedangkan cuti paternity diberikan 2 hari kerja bagi karyawan pria.\n\n[FAQ 2] Bagaimana cara mengajukan cuti?\nCuti diajukan melalui portal HR internal minimal 3 hari kerja sebelum tanggal cuti, dan memerlukan persetujuan atasan langsung.\n\n[FAQ 8] Bagaimana cara reset password VPN perusahaan?\nReset password VPN dapat dilakukan mandiri melalui portal self-service IT, atau menghubungi tim IT Support jika akun terkunci.\n\n[FAQ 12] Bagaimana jika lupa password akun laptop kerja?\nHubungi tim IT Support melalui tiket untuk reset password akun laptop, verifikasi identitas akan dilakukan sebelum reset dilakukan.\n\n[FAQ 14] Bagaimana cara mengajukan permintaan laptop baru?\nPermintaan laptop baru diajukan melalui tiket IT dengan justifikasi kebutuhan, dan memerlukan persetujuan manajer serta tim IT Asset.\n\n[FAQ 15] Apa yang harus dilakukan jika laptop kerja rusak?\nLaporkan kerusakan melalui tiket IT dengan kategori 'Hardware Issue', sertakan deskripsi masalah agar tim dapat memberikan unit pengganti sementara jika diperlukan.\n\n[FAQ 19] Apa saja yang perlu disiapkan karyawan baru di hari pertama?\nKaryawan baru perlu membawa dokumen identitas asli untuk verifikasi, dan akan menerima akun email serta akses sistem pada hari pertama.\n\n[FAQ 23] Bagaimana cara mengajukan reimbursement biaya kerja?\nReimbursement diajukan melalui portal HR dengan mengunggah bukti pembayaran, dan diproses dalam siklus payroll berikutnya.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nTolong jelaskan sedetail-detailnya seluruh kebijakan cuti, reset password, permintaan perangkat, dan proses onboarding sekaligus dalam satu jawaban.",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-12",
+      "category": "Resource/Token",
+      "query": "halo",
+      "expected_behavior_note": "Bandingkan token usage query ini vs EVAL-11 sebagai referensi efisiensi",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.",
+      "response_time_s": 0.514,
+      "retrieval_s": 0.509,
+      "llm_call_s": null,
+      "other_s": 0.005,
+      "llm_called": false,
+      "embed_attempts": 1,
+      "llm_attempts": 0,
+      "top_faq_ids": "6;16;2",
+      "top_score": 0.5834,
+      "prompt_chars": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": null,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 6,
+            "score": 0.5834
+          },
+          {
+            "faq_id": 16,
+            "score": 0.5751
+          },
+          {
+            "faq_id": 2,
+            "score": 0.5715
+          }
+        ],
+        "embed_s": [
+          0.508
+        ],
+        "prompt": null,
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-01",
+      "category": "Relevansi Dasar",
+      "query": "berapa jatah cuti tahunan saya?",
+      "expected_behavior_note": "Sistem menjawab sesuai FAQ cuti (12 hari) dengan akurat",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Halo! Karyawan tetap mendapat jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan.",
+      "response_time_s": 3.139,
+      "retrieval_s": 0.4,
+      "llm_call_s": 2.733,
+      "other_s": 0.006,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "1;7;6",
+      "top_score": 0.7888,
+      "prompt_chars": 1066,
+      "prompt_tokens": 329,
+      "output_tokens": 28,
+      "thinking_tokens": null,
+      "total_tokens": 357,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 1,
+            "score": 0.7888
+          },
+          {
+            "faq_id": 7,
+            "score": 0.7622
+          },
+          {
+            "faq_id": 6,
+            "score": 0.7551
+          }
+        ],
+        "embed_s": [
+          0.399
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 1] Berapa jatah cuti tahunan karyawan tetap?\nKaryawan tetap mendapat jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan.\n\n[FAQ 7] Apakah cuti bersama/libur nasional mengurangi jatah cuti tahunan?\nCuti bersama dan libur nasional tidak mengurangi jatah cuti tahunan karyawan.\n\n[FAQ 6] Bagaimana cara melihat sisa cuti yang saya miliki?\nSisa cuti dapat dilihat secara real-time melalui portal HR pada menu 'Ringkasan Cuti Saya'.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nberapa jatah cuti tahunan saya?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-04",
+      "category": "Di Luar Cakupan",
+      "query": "apakah kantor menyediakan tempat parkir motor gratis?",
+      "expected_behavior_note": "Sistem mengakui tidak punya informasi tsb,bukan mengarang jawaban (deteksi hallucination)",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.",
+      "response_time_s": 1.537,
+      "retrieval_s": 0.501,
+      "llm_call_s": 1.027,
+      "other_s": 0.009,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "25;13;27",
+      "top_score": 0.6615,
+      "prompt_chars": 1178,
+      "prompt_tokens": 335,
+      "output_tokens": 21,
+      "thinking_tokens": null,
+      "total_tokens": 356,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 25,
+            "score": 0.6615
+          },
+          {
+            "faq_id": 13,
+            "score": 0.6544
+          },
+          {
+            "faq_id": 27,
+            "score": 0.6413
+          }
+        ],
+        "embed_s": [
+          0.5
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 25] Apakah perusahaan menerapkan kebijakan kerja hybrid?\nYa, karyawan dapat bekerja dari rumah maksimal 2 hari per minggu sesuai kesepakatan dengan atasan masing-masing tim.\n\n[FAQ 13] Apakah bisa mengakses sistem internal dari luar kantor?\nAkses dari luar kantor memerlukan koneksi VPN aktif yang sudah terinstal pada perangkat kerja resmi.\n\n[FAQ 27] Apakah ada kebijakan lembur dan kompensasinya?\nLembur yang disetujui atasan akan dikompensasi sesuai regulasi ketenagakerjaan yang berlaku, dihitung berdasarkan jam kerja tambahan yang tercatat.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\napakah kantor menyediakan tempat parkir motor gratis?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-05",
+      "category": "Di Luar Cakupan",
+      "query": "siapa nama CEO perusahaan ini?",
+      "expected_behavior_note": "Sistem tidak boleh mengarang nama; harus mengakui keterbatasan informasi",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.",
+      "response_time_s": 1.489,
+      "retrieval_s": 0.446,
+      "llm_call_s": 1.038,
+      "other_s": 0.004,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "24;25;17",
+      "top_score": 0.6503,
+      "prompt_chars": 1195,
+      "prompt_tokens": 335,
+      "output_tokens": 21,
+      "thinking_tokens": null,
+      "total_tokens": 356,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 24,
+            "score": 0.6503
+          },
+          {
+            "faq_id": 25,
+            "score": 0.6332
+          },
+          {
+            "faq_id": 17,
+            "score": 0.6235
+          }
+        ],
+        "embed_s": [
+          0.445
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 24] Kepada siapa saya melapor jika ada masalah dengan atasan langsung?\nMasalah dengan atasan dapat dilaporkan ke HR Business Partner masing-masing departemen atau melalui kanal pengaduan rahasia perusahaan.\n\n[FAQ 25] Apakah perusahaan menerapkan kebijakan kerja hybrid?\nYa, karyawan dapat bekerja dari rumah maksimal 2 hari per minggu sesuai kesepakatan dengan atasan masing-masing tim.\n\n[FAQ 17] Apakah karyawan bisa menginstal software pribadi di laptop kerja?\nInstalasi software di luar daftar yang disetujui perusahaan memerlukan izin tertulis dari tim IT Security terlebih dahulu.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nsiapa nama CEO perusahaan ini?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-08",
+      "category": "Tool Call Ambigu",
+      "query": "tiket saya gimana ya?",
+      "expected_behavior_note": "Sistem meminta klarifikasi ID tiket,bukan menebak",
+      "http_status": 200,
+      "intent": "ticket_status",
+      "status": "error",
+      "response": "Mohon sebutkan ID tiket Anda (format TICKET-XXXX), misalnya: \"Cek status TICKET-0005\".",
+      "response_time_s": 0.007,
+      "retrieval_s": null,
+      "llm_call_s": null,
+      "other_s": 0.007,
+      "llm_called": false,
+      "embed_attempts": 0,
+      "llm_attempts": 0,
+      "top_faq_ids": null,
+      "top_score": null,
+      "prompt_chars": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": null,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [],
+        "embed_s": [],
+        "prompt": null,
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-10",
+      "category": "Konsistensi",
+      "query": "berapa hari cuti tahunan yang saya dapat?",
+      "expected_behavior_note": "Jawaban harus konsisten dengan EVAL-01 meski kalimat beda",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Halo! Karyawan tetap mendapat jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan. Jika ada hal lain yang ingin ditanyakan, silakan beri tahu ya!",
+      "response_time_s": 3.375,
+      "retrieval_s": 0.492,
+      "llm_call_s": 2.874,
+      "other_s": 0.009,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "1;7;3",
+      "top_score": 0.7963,
+      "prompt_chars": 1116,
+      "prompt_tokens": 334,
+      "output_tokens": 43,
+      "thinking_tokens": null,
+      "total_tokens": 377,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 1,
+            "score": 0.7963
+          },
+          {
+            "faq_id": 7,
+            "score": 0.7558
+          },
+          {
+            "faq_id": 3,
+            "score": 0.7541
+          }
+        ],
+        "embed_s": [
+          0.491
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 1] Berapa jatah cuti tahunan karyawan tetap?\nKaryawan tetap mendapat jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan.\n\n[FAQ 7] Apakah cuti bersama/libur nasional mengurangi jatah cuti tahunan?\nCuti bersama dan libur nasional tidak mengurangi jatah cuti tahunan karyawan.\n\n[FAQ 3] Apakah cuti yang tidak terpakai bisa dibawa ke tahun berikutnya?\nSisa cuti dapat dibawa maksimal 6 hari ke tahun berikutnya, dan harus digunakan dalam kuartal pertama tahun tersebut.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nberapa hari cuti tahunan yang saya dapat?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-11",
+      "category": "Beban Panjang",
+      "query": "Tolong jelaskan sedetail-detailnya seluruh kebijakan cuti, reset password, permintaan perangkat, dan proses onboarding sekaligus dalam satu jawaban.",
+      "expected_behavior_note": "Amati waktu respons dan apakah jawaban tetap relevan atau melebar ke luar konteks",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Kebijakan cuti melahirkan diberikan 3 bulan dan *paternity leave* 2 hari kerja, yang diajukan melalui portal HR minimal 3 hari kerja sebelum tanggal cuti dengan persetujuan atasan. Reset password VPN dapat dilakukan secara mandiri melalui portal *self-service* IT, sedangkan untuk password akun laptop kerja perlu menghubungi tim IT Support melalui tiket. Permintaan laptop baru diajukan melalui tiket IT dengan justifikasi dan persetujuan manajer serta tim IT Asset, sementara informasi mendetail mengenai proses *onboarding* secara keseluruhan tidak ditemukan di *knowledge base*.",
+      "response_time_s": 3.326,
+      "retrieval_s": 0.528,
+      "llm_call_s": 2.364,
+      "other_s": 0.434,
+      "llm_called": true,
+      "embed_attempts": 2,
+      "llm_attempts": 1,
+      "top_faq_ids": "12;19;23",
+      "top_score": 0.7287,
+      "prompt_chars": 2267,
+      "prompt_tokens": 561,
+      "output_tokens": 119,
+      "thinking_tokens": null,
+      "total_tokens": 680,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 12,
+            "score": 0.7287
+          },
+          {
+            "faq_id": 19,
+            "score": 0.7195
+          },
+          {
+            "faq_id": 23,
+            "score": 0.7114
+          }
+        ],
+        "embed_s": [
+          0.527,
+          0.423
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 28] Bagaimana kebijakan penggunaan cuti melahirkan/paternity leave?\nCuti melahirkan diberikan 3 bulan sesuai regulasi, sedangkan cuti paternity diberikan 2 hari kerja bagi karyawan pria.\n\n[FAQ 2] Bagaimana cara mengajukan cuti?\nCuti diajukan melalui portal HR internal minimal 3 hari kerja sebelum tanggal cuti, dan memerlukan persetujuan atasan langsung.\n\n[FAQ 8] Bagaimana cara reset password VPN perusahaan?\nReset password VPN dapat dilakukan mandiri melalui portal self-service IT, atau menghubungi tim IT Support jika akun terkunci.\n\n[FAQ 12] Bagaimana jika lupa password akun laptop kerja?\nHubungi tim IT Support melalui tiket untuk reset password akun laptop, verifikasi identitas akan dilakukan sebelum reset dilakukan.\n\n[FAQ 14] Bagaimana cara mengajukan permintaan laptop baru?\nPermintaan laptop baru diajukan melalui tiket IT dengan justifikasi kebutuhan, dan memerlukan persetujuan manajer serta tim IT Asset.\n\n[FAQ 15] Apa yang harus dilakukan jika laptop kerja rusak?\nLaporkan kerusakan melalui tiket IT dengan kategori 'Hardware Issue', sertakan deskripsi masalah agar tim dapat memberikan unit pengganti sementara jika diperlukan.\n\n[FAQ 19] Apa saja yang perlu disiapkan karyawan baru di hari pertama?\nKaryawan baru perlu membawa dokumen identitas asli untuk verifikasi, dan akan menerima akun email serta akses sistem pada hari pertama.\n\n[FAQ 23] Bagaimana cara mengajukan reimbursement biaya kerja?\nReimbursement diajukan melalui portal HR dengan mengunggah bukti pembayaran, dan diproses dalam siklus payroll berikutnya.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nTolong jelaskan sedetail-detailnya seluruh kebijakan cuti, reset password, permintaan perangkat, dan proses onboarding sekaligus dalam satu jawaban.",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-12",
+      "category": "Resource/Token",
+      "query": "halo",
+      "expected_behavior_note": "Bandingkan token usage query ini vs EVAL-11 sebagai referensi efisiensi",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.",
+      "response_time_s": 0.525,
+      "retrieval_s": 0.519,
+      "llm_call_s": null,
+      "other_s": 0.005,
+      "llm_called": false,
+      "embed_attempts": 1,
+      "llm_attempts": 0,
+      "top_faq_ids": "6;16;2",
+      "top_score": 0.5834,
+      "prompt_chars": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": null,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 6,
+            "score": 0.5834
+          },
+          {
+            "faq_id": 16,
+            "score": 0.5751
+          },
+          {
+            "faq_id": 2,
+            "score": 0.5715
+          }
+        ],
+        "embed_s": [
+          0.518
+        ],
+        "prompt": null,
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-01",
+      "category": "Relevansi Dasar",
+      "query": "berapa jatah cuti tahunan saya?",
+      "expected_behavior_note": "Sistem menjawab sesuai FAQ cuti (12 hari) dengan akurat",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Halo! Karyawan tetap mendapat jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan. Sisa cuti tersebut dapat dilihat secara real-time melalui portal HR pada menu 'Ringkasan Cuti Saya'.",
+      "response_time_s": 1.383,
+      "retrieval_s": 0.443,
+      "llm_call_s": 0.932,
+      "other_s": 0.008,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "1;7;6",
+      "top_score": 0.7888,
+      "prompt_chars": 1066,
+      "prompt_tokens": 329,
+      "output_tokens": 52,
+      "thinking_tokens": null,
+      "total_tokens": 381,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 1,
+            "score": 0.7888
+          },
+          {
+            "faq_id": 7,
+            "score": 0.7622
+          },
+          {
+            "faq_id": 6,
+            "score": 0.7551
+          }
+        ],
+        "embed_s": [
+          0.441
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 1] Berapa jatah cuti tahunan karyawan tetap?\nKaryawan tetap mendapat jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan.\n\n[FAQ 7] Apakah cuti bersama/libur nasional mengurangi jatah cuti tahunan?\nCuti bersama dan libur nasional tidak mengurangi jatah cuti tahunan karyawan.\n\n[FAQ 6] Bagaimana cara melihat sisa cuti yang saya miliki?\nSisa cuti dapat dilihat secara real-time melalui portal HR pada menu 'Ringkasan Cuti Saya'.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nberapa jatah cuti tahunan saya?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-04",
+      "category": "Di Luar Cakupan",
+      "query": "apakah kantor menyediakan tempat parkir motor gratis?",
+      "expected_behavior_note": "Sistem mengakui tidak punya informasi tsb,bukan mengarang jawaban (deteksi hallucination)",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.",
+      "response_time_s": 1.992,
+      "retrieval_s": 0.413,
+      "llm_call_s": 1.573,
+      "other_s": 0.006,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "25;13;27",
+      "top_score": 0.6615,
+      "prompt_chars": 1178,
+      "prompt_tokens": 335,
+      "output_tokens": 21,
+      "thinking_tokens": null,
+      "total_tokens": 356,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 25,
+            "score": 0.6615
+          },
+          {
+            "faq_id": 13,
+            "score": 0.6544
+          },
+          {
+            "faq_id": 27,
+            "score": 0.6413
+          }
+        ],
+        "embed_s": [
+          0.412
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 25] Apakah perusahaan menerapkan kebijakan kerja hybrid?\nYa, karyawan dapat bekerja dari rumah maksimal 2 hari per minggu sesuai kesepakatan dengan atasan masing-masing tim.\n\n[FAQ 13] Apakah bisa mengakses sistem internal dari luar kantor?\nAkses dari luar kantor memerlukan koneksi VPN aktif yang sudah terinstal pada perangkat kerja resmi.\n\n[FAQ 27] Apakah ada kebijakan lembur dan kompensasinya?\nLembur yang disetujui atasan akan dikompensasi sesuai regulasi ketenagakerjaan yang berlaku, dihitung berdasarkan jam kerja tambahan yang tercatat.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\napakah kantor menyediakan tempat parkir motor gratis?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-05",
+      "category": "Di Luar Cakupan",
+      "query": "siapa nama CEO perusahaan ini?",
+      "expected_behavior_note": "Sistem tidak boleh mengarang nama; harus mengakui keterbatasan informasi",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.",
+      "response_time_s": 1.333,
+      "retrieval_s": 0.402,
+      "llm_call_s": 0.923,
+      "other_s": 0.007,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "24;25;17",
+      "top_score": 0.6503,
+      "prompt_chars": 1195,
+      "prompt_tokens": 335,
+      "output_tokens": 21,
+      "thinking_tokens": null,
+      "total_tokens": 356,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 24,
+            "score": 0.6503
+          },
+          {
+            "faq_id": 25,
+            "score": 0.6332
+          },
+          {
+            "faq_id": 17,
+            "score": 0.6235
+          }
+        ],
+        "embed_s": [
+          0.401
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 24] Kepada siapa saya melapor jika ada masalah dengan atasan langsung?\nMasalah dengan atasan dapat dilaporkan ke HR Business Partner masing-masing departemen atau melalui kanal pengaduan rahasia perusahaan.\n\n[FAQ 25] Apakah perusahaan menerapkan kebijakan kerja hybrid?\nYa, karyawan dapat bekerja dari rumah maksimal 2 hari per minggu sesuai kesepakatan dengan atasan masing-masing tim.\n\n[FAQ 17] Apakah karyawan bisa menginstal software pribadi di laptop kerja?\nInstalasi software di luar daftar yang disetujui perusahaan memerlukan izin tertulis dari tim IT Security terlebih dahulu.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nsiapa nama CEO perusahaan ini?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-08",
+      "category": "Tool Call Ambigu",
+      "query": "tiket saya gimana ya?",
+      "expected_behavior_note": "Sistem meminta klarifikasi ID tiket,bukan menebak",
+      "http_status": 200,
+      "intent": "ticket_status",
+      "status": "error",
+      "response": "Mohon sebutkan ID tiket Anda (format TICKET-XXXX), misalnya: \"Cek status TICKET-0005\".",
+      "response_time_s": 0.007,
+      "retrieval_s": null,
+      "llm_call_s": null,
+      "other_s": 0.007,
+      "llm_called": false,
+      "embed_attempts": 0,
+      "llm_attempts": 0,
+      "top_faq_ids": null,
+      "top_score": null,
+      "prompt_chars": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": null,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [],
+        "embed_s": [],
+        "prompt": null,
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-10",
+      "category": "Konsistensi",
+      "query": "berapa hari cuti tahunan yang saya dapat?",
+      "expected_behavior_note": "Jawaban harus konsisten dengan EVAL-01 meski kalimat beda",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Halo! Karyawan tetap mendapatkan jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan.",
+      "response_time_s": 3.347,
+      "retrieval_s": 0.541,
+      "llm_call_s": 2.797,
+      "other_s": 0.008,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "1;7;3",
+      "top_score": 0.7963,
+      "prompt_chars": 1116,
+      "prompt_tokens": 334,
+      "output_tokens": 28,
+      "thinking_tokens": null,
+      "total_tokens": 362,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 1,
+            "score": 0.7963
+          },
+          {
+            "faq_id": 7,
+            "score": 0.7558
+          },
+          {
+            "faq_id": 3,
+            "score": 0.7541
+          }
+        ],
+        "embed_s": [
+          0.54
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 1] Berapa jatah cuti tahunan karyawan tetap?\nKaryawan tetap mendapat jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan.\n\n[FAQ 7] Apakah cuti bersama/libur nasional mengurangi jatah cuti tahunan?\nCuti bersama dan libur nasional tidak mengurangi jatah cuti tahunan karyawan.\n\n[FAQ 3] Apakah cuti yang tidak terpakai bisa dibawa ke tahun berikutnya?\nSisa cuti dapat dibawa maksimal 6 hari ke tahun berikutnya, dan harus digunakan dalam kuartal pertama tahun tersebut.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nberapa hari cuti tahunan yang saya dapat?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-11",
+      "category": "Beban Panjang",
+      "query": "Tolong jelaskan sedetail-detailnya seluruh kebijakan cuti, reset password, permintaan perangkat, dan proses onboarding sekaligus dalam satu jawaban.",
+      "expected_behavior_note": "Amati waktu respons dan apakah jawaban tetap relevan atau melebar ke luar konteks",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Cuti melahirkan diberikan 3 bulan dan cuti paternity 2 hari kerja, yang diajukan melalui portal HR minimal 3 hari kerja sebelumnya. Reset password VPN dapat dilakukan lewat portal self-service IT atau IT Support, sementara password laptop memerlukan tiket ke IT Support. Permintaan laptop baru diajukan via tiket IT dengan persetujuan manajer dan IT Asset, sedangkan informasi proses onboarding tidak ditemukan.",
+      "response_time_s": 2.074,
+      "retrieval_s": 0.507,
+      "llm_call_s": 1.132,
+      "other_s": 0.435,
+      "llm_called": true,
+      "embed_attempts": 2,
+      "llm_attempts": 1,
+      "top_faq_ids": "12;19;23",
+      "top_score": 0.7287,
+      "prompt_chars": 2267,
+      "prompt_tokens": 561,
+      "output_tokens": 82,
+      "thinking_tokens": null,
+      "total_tokens": 643,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 12,
+            "score": 0.7287
+          },
+          {
+            "faq_id": 19,
+            "score": 0.7195
+          },
+          {
+            "faq_id": 23,
+            "score": 0.7114
+          }
+        ],
+        "embed_s": [
+          0.506,
+          0.425
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 28] Bagaimana kebijakan penggunaan cuti melahirkan/paternity leave?\nCuti melahirkan diberikan 3 bulan sesuai regulasi, sedangkan cuti paternity diberikan 2 hari kerja bagi karyawan pria.\n\n[FAQ 2] Bagaimana cara mengajukan cuti?\nCuti diajukan melalui portal HR internal minimal 3 hari kerja sebelum tanggal cuti, dan memerlukan persetujuan atasan langsung.\n\n[FAQ 8] Bagaimana cara reset password VPN perusahaan?\nReset password VPN dapat dilakukan mandiri melalui portal self-service IT, atau menghubungi tim IT Support jika akun terkunci.\n\n[FAQ 12] Bagaimana jika lupa password akun laptop kerja?\nHubungi tim IT Support melalui tiket untuk reset password akun laptop, verifikasi identitas akan dilakukan sebelum reset dilakukan.\n\n[FAQ 14] Bagaimana cara mengajukan permintaan laptop baru?\nPermintaan laptop baru diajukan melalui tiket IT dengan justifikasi kebutuhan, dan memerlukan persetujuan manajer serta tim IT Asset.\n\n[FAQ 15] Apa yang harus dilakukan jika laptop kerja rusak?\nLaporkan kerusakan melalui tiket IT dengan kategori 'Hardware Issue', sertakan deskripsi masalah agar tim dapat memberikan unit pengganti sementara jika diperlukan.\n\n[FAQ 19] Apa saja yang perlu disiapkan karyawan baru di hari pertama?\nKaryawan baru perlu membawa dokumen identitas asli untuk verifikasi, dan akan menerima akun email serta akses sistem pada hari pertama.\n\n[FAQ 23] Bagaimana cara mengajukan reimbursement biaya kerja?\nReimbursement diajukan melalui portal HR dengan mengunggah bukti pembayaran, dan diproses dalam siklus payroll berikutnya.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nTolong jelaskan sedetail-detailnya seluruh kebijakan cuti, reset password, permintaan perangkat, dan proses onboarding sekaligus dalam satu jawaban.",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-12",
+      "category": "Resource/Token",
+      "query": "halo",
+      "expected_behavior_note": "Bandingkan token usage query ini vs EVAL-11 sebagai referensi efisiensi",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.",
+      "response_time_s": 0.44,
+      "retrieval_s": 0.434,
+      "llm_call_s": null,
+      "other_s": 0.007,
+      "llm_called": false,
+      "embed_attempts": 1,
+      "llm_attempts": 0,
+      "top_faq_ids": "6;16;2",
+      "top_score": 0.5834,
+      "prompt_chars": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": null,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 6,
+            "score": 0.5834
+          },
+          {
+            "faq_id": 16,
+            "score": 0.5751
+          },
+          {
+            "faq_id": 2,
+            "score": 0.5715
+          }
+        ],
+        "embed_s": [
+          0.433
+        ],
+        "prompt": null,
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-01",
+      "category": "Relevansi Dasar",
+      "query": "berapa jatah cuti tahunan saya?",
+      "expected_behavior_note": "Sistem menjawab sesuai FAQ cuti (12 hari) dengan akurat",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Halo! Karyawan tetap mendapat jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan.",
+      "response_time_s": 3.98,
+      "retrieval_s": 0.413,
+      "llm_call_s": 3.56,
+      "other_s": 0.007,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "1;7;6",
+      "top_score": 0.7888,
+      "prompt_chars": 1066,
+      "prompt_tokens": 329,
+      "output_tokens": 28,
+      "thinking_tokens": null,
+      "total_tokens": 357,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 1,
+            "score": 0.7888
+          },
+          {
+            "faq_id": 7,
+            "score": 0.7622
+          },
+          {
+            "faq_id": 6,
+            "score": 0.7551
+          }
+        ],
+        "embed_s": [
+          0.411
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 1] Berapa jatah cuti tahunan karyawan tetap?\nKaryawan tetap mendapat jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan.\n\n[FAQ 7] Apakah cuti bersama/libur nasional mengurangi jatah cuti tahunan?\nCuti bersama dan libur nasional tidak mengurangi jatah cuti tahunan karyawan.\n\n[FAQ 6] Bagaimana cara melihat sisa cuti yang saya miliki?\nSisa cuti dapat dilihat secara real-time melalui portal HR pada menu 'Ringkasan Cuti Saya'.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nberapa jatah cuti tahunan saya?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-04",
+      "category": "Di Luar Cakupan",
+      "query": "apakah kantor menyediakan tempat parkir motor gratis?",
+      "expected_behavior_note": "Sistem mengakui tidak punya informasi tsb,bukan mengarang jawaban (deteksi hallucination)",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.",
+      "response_time_s": 2.62,
+      "retrieval_s": 0.512,
+      "llm_call_s": 2.104,
+      "other_s": 0.004,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "25;13;27",
+      "top_score": 0.6615,
+      "prompt_chars": 1178,
+      "prompt_tokens": 335,
+      "output_tokens": 21,
+      "thinking_tokens": null,
+      "total_tokens": 356,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 25,
+            "score": 0.6615
+          },
+          {
+            "faq_id": 13,
+            "score": 0.6544
+          },
+          {
+            "faq_id": 27,
+            "score": 0.6413
+          }
+        ],
+        "embed_s": [
+          0.511
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 25] Apakah perusahaan menerapkan kebijakan kerja hybrid?\nYa, karyawan dapat bekerja dari rumah maksimal 2 hari per minggu sesuai kesepakatan dengan atasan masing-masing tim.\n\n[FAQ 13] Apakah bisa mengakses sistem internal dari luar kantor?\nAkses dari luar kantor memerlukan koneksi VPN aktif yang sudah terinstal pada perangkat kerja resmi.\n\n[FAQ 27] Apakah ada kebijakan lembur dan kompensasinya?\nLembur yang disetujui atasan akan dikompensasi sesuai regulasi ketenagakerjaan yang berlaku, dihitung berdasarkan jam kerja tambahan yang tercatat.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\napakah kantor menyediakan tempat parkir motor gratis?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-05",
+      "category": "Di Luar Cakupan",
+      "query": "siapa nama CEO perusahaan ini?",
+      "expected_behavior_note": "Sistem tidak boleh mengarang nama; harus mengakui keterbatasan informasi",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.",
+      "response_time_s": 1.723,
+      "retrieval_s": 0.509,
+      "llm_call_s": 1.207,
+      "other_s": 0.007,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "24;25;17",
+      "top_score": 0.6503,
+      "prompt_chars": 1195,
+      "prompt_tokens": 335,
+      "output_tokens": 21,
+      "thinking_tokens": null,
+      "total_tokens": 356,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 24,
+            "score": 0.6503
+          },
+          {
+            "faq_id": 25,
+            "score": 0.6332
+          },
+          {
+            "faq_id": 17,
+            "score": 0.6235
+          }
+        ],
+        "embed_s": [
+          0.508
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 24] Kepada siapa saya melapor jika ada masalah dengan atasan langsung?\nMasalah dengan atasan dapat dilaporkan ke HR Business Partner masing-masing departemen atau melalui kanal pengaduan rahasia perusahaan.\n\n[FAQ 25] Apakah perusahaan menerapkan kebijakan kerja hybrid?\nYa, karyawan dapat bekerja dari rumah maksimal 2 hari per minggu sesuai kesepakatan dengan atasan masing-masing tim.\n\n[FAQ 17] Apakah karyawan bisa menginstal software pribadi di laptop kerja?\nInstalasi software di luar daftar yang disetujui perusahaan memerlukan izin tertulis dari tim IT Security terlebih dahulu.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nsiapa nama CEO perusahaan ini?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-08",
+      "category": "Tool Call Ambigu",
+      "query": "tiket saya gimana ya?",
+      "expected_behavior_note": "Sistem meminta klarifikasi ID tiket,bukan menebak",
+      "http_status": 200,
+      "intent": "ticket_status",
+      "status": "error",
+      "response": "Mohon sebutkan ID tiket Anda (format TICKET-XXXX), misalnya: \"Cek status TICKET-0005\".",
+      "response_time_s": 0.007,
+      "retrieval_s": null,
+      "llm_call_s": null,
+      "other_s": 0.007,
+      "llm_called": false,
+      "embed_attempts": 0,
+      "llm_attempts": 0,
+      "top_faq_ids": null,
+      "top_score": null,
+      "prompt_chars": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": null,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [],
+        "embed_s": [],
+        "prompt": null,
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-10",
+      "category": "Konsistensi",
+      "query": "berapa hari cuti tahunan yang saya dapat?",
+      "expected_behavior_note": "Jawaban harus konsisten dengan EVAL-01 meski kalimat beda",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Halo! Sebagai karyawan tetap, Anda mendapat jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan. Silakan beri tahu jika ada hal lain yang bisa saya bantu!",
+      "response_time_s": 6.522,
+      "retrieval_s": 0.52,
+      "llm_call_s": 5.994,
+      "other_s": 0.008,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "1;7;3",
+      "top_score": 0.7963,
+      "prompt_chars": 1116,
+      "prompt_tokens": 334,
+      "output_tokens": 42,
+      "thinking_tokens": null,
+      "total_tokens": 376,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 1,
+            "score": 0.7963
+          },
+          {
+            "faq_id": 7,
+            "score": 0.7558
+          },
+          {
+            "faq_id": 3,
+            "score": 0.7541
+          }
+        ],
+        "embed_s": [
+          0.519
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 1] Berapa jatah cuti tahunan karyawan tetap?\nKaryawan tetap mendapat jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan.\n\n[FAQ 7] Apakah cuti bersama/libur nasional mengurangi jatah cuti tahunan?\nCuti bersama dan libur nasional tidak mengurangi jatah cuti tahunan karyawan.\n\n[FAQ 3] Apakah cuti yang tidak terpakai bisa dibawa ke tahun berikutnya?\nSisa cuti dapat dibawa maksimal 6 hari ke tahun berikutnya, dan harus digunakan dalam kuartal pertama tahun tersebut.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nberapa hari cuti tahunan yang saya dapat?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-11",
+      "category": "Beban Panjang",
+      "query": "Tolong jelaskan sedetail-detailnya seluruh kebijakan cuti, reset password, permintaan perangkat, dan proses onboarding sekaligus dalam satu jawaban.",
+      "expected_behavior_note": "Amati waktu respons dan apakah jawaban tetap relevan atau melebar ke luar konteks",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Cuti melahirkan diberikan 3 bulan dan cuti *paternity* 2 hari kerja, sementara pengajuan cuti dilakukan lewat portal HR minimal 3 hari sebelumnya dengan persetujuan atasan. Reset password VPN dapat dilakukan mandiri via portal *self-service* IT atau menghubungi IT Support jika terkunci, sedangkan reset password laptop memerlukan tiket ke tim IT Support. Permintaan laptop baru diajukan melalui tiket IT dengan persetujuan manajer dan IT Asset, dan jika rusak perlu dilaporkan dengan kategori 'Hardware Issue'. Terkait onboarding, karyawan baru perlu membawa dokumen identitas asli pada hari pertama untuk verifikasi serta akan menerima akun email dan akses sistem.",
+      "response_time_s": 2.595,
+      "retrieval_s": 0.49,
+      "llm_call_s": 1.652,
+      "other_s": 0.452,
+      "llm_called": true,
+      "embed_attempts": 2,
+      "llm_attempts": 1,
+      "top_faq_ids": "12;19;23",
+      "top_score": 0.7287,
+      "prompt_chars": 2267,
+      "prompt_tokens": 561,
+      "output_tokens": 134,
+      "thinking_tokens": null,
+      "total_tokens": 695,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 12,
+            "score": 0.7287
+          },
+          {
+            "faq_id": 19,
+            "score": 0.7195
+          },
+          {
+            "faq_id": 23,
+            "score": 0.7114
+          }
+        ],
+        "embed_s": [
+          0.489,
+          0.443
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 28] Bagaimana kebijakan penggunaan cuti melahirkan/paternity leave?\nCuti melahirkan diberikan 3 bulan sesuai regulasi, sedangkan cuti paternity diberikan 2 hari kerja bagi karyawan pria.\n\n[FAQ 2] Bagaimana cara mengajukan cuti?\nCuti diajukan melalui portal HR internal minimal 3 hari kerja sebelum tanggal cuti, dan memerlukan persetujuan atasan langsung.\n\n[FAQ 8] Bagaimana cara reset password VPN perusahaan?\nReset password VPN dapat dilakukan mandiri melalui portal self-service IT, atau menghubungi tim IT Support jika akun terkunci.\n\n[FAQ 12] Bagaimana jika lupa password akun laptop kerja?\nHubungi tim IT Support melalui tiket untuk reset password akun laptop, verifikasi identitas akan dilakukan sebelum reset dilakukan.\n\n[FAQ 14] Bagaimana cara mengajukan permintaan laptop baru?\nPermintaan laptop baru diajukan melalui tiket IT dengan justifikasi kebutuhan, dan memerlukan persetujuan manajer serta tim IT Asset.\n\n[FAQ 15] Apa yang harus dilakukan jika laptop kerja rusak?\nLaporkan kerusakan melalui tiket IT dengan kategori 'Hardware Issue', sertakan deskripsi masalah agar tim dapat memberikan unit pengganti sementara jika diperlukan.\n\n[FAQ 19] Apa saja yang perlu disiapkan karyawan baru di hari pertama?\nKaryawan baru perlu membawa dokumen identitas asli untuk verifikasi, dan akan menerima akun email serta akses sistem pada hari pertama.\n\n[FAQ 23] Bagaimana cara mengajukan reimbursement biaya kerja?\nReimbursement diajukan melalui portal HR dengan mengunggah bukti pembayaran, dan diproses dalam siklus payroll berikutnya.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nTolong jelaskan sedetail-detailnya seluruh kebijakan cuti, reset password, permintaan perangkat, dan proses onboarding sekaligus dalam satu jawaban.",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-12",
+      "category": "Resource/Token",
+      "query": "halo",
+      "expected_behavior_note": "Bandingkan token usage query ini vs EVAL-11 sebagai referensi efisiensi",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.",
+      "response_time_s": 0.435,
+      "retrieval_s": 0.428,
+      "llm_call_s": null,
+      "other_s": 0.007,
+      "llm_called": false,
+      "embed_attempts": 1,
+      "llm_attempts": 0,
+      "top_faq_ids": "6;16;2",
+      "top_score": 0.5834,
+      "prompt_chars": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": null,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 6,
+            "score": 0.5834
+          },
+          {
+            "faq_id": 16,
+            "score": 0.5751
+          },
+          {
+            "faq_id": 2,
+            "score": 0.5715
+          }
+        ],
+        "embed_s": [
+          0.427
+        ],
+        "prompt": null,
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-01",
+      "category": "Relevansi Dasar",
+      "query": "berapa jatah cuti tahunan saya?",
+      "expected_behavior_note": "Sistem menjawab sesuai FAQ cuti (12 hari) dengan akurat",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Halo! Karyawan tetap mendapat jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan. Sisa cuti tersebut dapat dilihat secara real-time melalui portal HR pada menu 'Ringkasan Cuti Saya'.",
+      "response_time_s": 3.998,
+      "retrieval_s": 0.408,
+      "llm_call_s": 3.584,
+      "other_s": 0.006,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "1;7;6",
+      "top_score": 0.7888,
+      "prompt_chars": 1066,
+      "prompt_tokens": 329,
+      "output_tokens": 52,
+      "thinking_tokens": null,
+      "total_tokens": 381,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 1,
+            "score": 0.7888
+          },
+          {
+            "faq_id": 7,
+            "score": 0.7622
+          },
+          {
+            "faq_id": 6,
+            "score": 0.7551
+          }
+        ],
+        "embed_s": [
+          0.406
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 1] Berapa jatah cuti tahunan karyawan tetap?\nKaryawan tetap mendapat jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan.\n\n[FAQ 7] Apakah cuti bersama/libur nasional mengurangi jatah cuti tahunan?\nCuti bersama dan libur nasional tidak mengurangi jatah cuti tahunan karyawan.\n\n[FAQ 6] Bagaimana cara melihat sisa cuti yang saya miliki?\nSisa cuti dapat dilihat secara real-time melalui portal HR pada menu 'Ringkasan Cuti Saya'.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nberapa jatah cuti tahunan saya?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-04",
+      "category": "Di Luar Cakupan",
+      "query": "apakah kantor menyediakan tempat parkir motor gratis?",
+      "expected_behavior_note": "Sistem mengakui tidak punya informasi tsb,bukan mengarang jawaban (deteksi hallucination)",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.",
+      "response_time_s": 2.92,
+      "retrieval_s": 1.149,
+      "llm_call_s": 1.763,
+      "other_s": 0.008,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "25;13;27",
+      "top_score": 0.6615,
+      "prompt_chars": 1178,
+      "prompt_tokens": 335,
+      "output_tokens": 21,
+      "thinking_tokens": null,
+      "total_tokens": 356,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 25,
+            "score": 0.6615
+          },
+          {
+            "faq_id": 13,
+            "score": 0.6544
+          },
+          {
+            "faq_id": 27,
+            "score": 0.6413
+          }
+        ],
+        "embed_s": [
+          1.147
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 25] Apakah perusahaan menerapkan kebijakan kerja hybrid?\nYa, karyawan dapat bekerja dari rumah maksimal 2 hari per minggu sesuai kesepakatan dengan atasan masing-masing tim.\n\n[FAQ 13] Apakah bisa mengakses sistem internal dari luar kantor?\nAkses dari luar kantor memerlukan koneksi VPN aktif yang sudah terinstal pada perangkat kerja resmi.\n\n[FAQ 27] Apakah ada kebijakan lembur dan kompensasinya?\nLembur yang disetujui atasan akan dikompensasi sesuai regulasi ketenagakerjaan yang berlaku, dihitung berdasarkan jam kerja tambahan yang tercatat.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\napakah kantor menyediakan tempat parkir motor gratis?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-05",
+      "category": "Di Luar Cakupan",
+      "query": "siapa nama CEO perusahaan ini?",
+      "expected_behavior_note": "Sistem tidak boleh mengarang nama; harus mengakui keterbatasan informasi",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.",
+      "response_time_s": 1.389,
+      "retrieval_s": 0.415,
+      "llm_call_s": 0.966,
+      "other_s": 0.007,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "24;25;17",
+      "top_score": 0.6503,
+      "prompt_chars": 1195,
+      "prompt_tokens": 335,
+      "output_tokens": 21,
+      "thinking_tokens": null,
+      "total_tokens": 356,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 24,
+            "score": 0.6503
+          },
+          {
+            "faq_id": 25,
+            "score": 0.6332
+          },
+          {
+            "faq_id": 17,
+            "score": 0.6235
+          }
+        ],
+        "embed_s": [
+          0.414
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 24] Kepada siapa saya melapor jika ada masalah dengan atasan langsung?\nMasalah dengan atasan dapat dilaporkan ke HR Business Partner masing-masing departemen atau melalui kanal pengaduan rahasia perusahaan.\n\n[FAQ 25] Apakah perusahaan menerapkan kebijakan kerja hybrid?\nYa, karyawan dapat bekerja dari rumah maksimal 2 hari per minggu sesuai kesepakatan dengan atasan masing-masing tim.\n\n[FAQ 17] Apakah karyawan bisa menginstal software pribadi di laptop kerja?\nInstalasi software di luar daftar yang disetujui perusahaan memerlukan izin tertulis dari tim IT Security terlebih dahulu.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nsiapa nama CEO perusahaan ini?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-08",
+      "category": "Tool Call Ambigu",
+      "query": "tiket saya gimana ya?",
+      "expected_behavior_note": "Sistem meminta klarifikasi ID tiket,bukan menebak",
+      "http_status": 200,
+      "intent": "ticket_status",
+      "status": "error",
+      "response": "Mohon sebutkan ID tiket Anda (format TICKET-XXXX), misalnya: \"Cek status TICKET-0005\".",
+      "response_time_s": 0.007,
+      "retrieval_s": null,
+      "llm_call_s": null,
+      "other_s": 0.007,
+      "llm_called": false,
+      "embed_attempts": 0,
+      "llm_attempts": 0,
+      "top_faq_ids": null,
+      "top_score": null,
+      "prompt_chars": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": null,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [],
+        "embed_s": [],
+        "prompt": null,
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-10",
+      "category": "Konsistensi",
+      "query": "berapa hari cuti tahunan yang saya dapat?",
+      "expected_behavior_note": "Jawaban harus konsisten dengan EVAL-01 meski kalimat beda",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Halo! Karyawan tetap mendapatkan jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan.",
+      "response_time_s": 6.428,
+      "retrieval_s": 0.49,
+      "llm_call_s": 5.93,
+      "other_s": 0.008,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "1;7;3",
+      "top_score": 0.7963,
+      "prompt_chars": 1116,
+      "prompt_tokens": 334,
+      "output_tokens": 28,
+      "thinking_tokens": null,
+      "total_tokens": 362,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 1,
+            "score": 0.7963
+          },
+          {
+            "faq_id": 7,
+            "score": 0.7558
+          },
+          {
+            "faq_id": 3,
+            "score": 0.7541
+          }
+        ],
+        "embed_s": [
+          0.49
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 1] Berapa jatah cuti tahunan karyawan tetap?\nKaryawan tetap mendapat jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan.\n\n[FAQ 7] Apakah cuti bersama/libur nasional mengurangi jatah cuti tahunan?\nCuti bersama dan libur nasional tidak mengurangi jatah cuti tahunan karyawan.\n\n[FAQ 3] Apakah cuti yang tidak terpakai bisa dibawa ke tahun berikutnya?\nSisa cuti dapat dibawa maksimal 6 hari ke tahun berikutnya, dan harus digunakan dalam kuartal pertama tahun tersebut.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nberapa hari cuti tahunan yang saya dapat?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-11",
+      "category": "Beban Panjang",
+      "query": "Tolong jelaskan sedetail-detailnya seluruh kebijakan cuti, reset password, permintaan perangkat, dan proses onboarding sekaligus dalam satu jawaban.",
+      "expected_behavior_note": "Amati waktu respons dan apakah jawaban tetap relevan atau melebar ke luar konteks",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Cuti melahirkan diberikan 3 bulan dan cuti *paternity* 2 hari kerja bagi pria, yang diajukan melalui portal HR minimal 3 hari kerja sebelumnya dengan persetujuan atasan. Reset password VPN dapat dilakukan mandiri via portal *self-service* IT, sedangkan reset password laptop memerlukan tiket ke tim IT Support. Permintaan laptop baru diajukan melalui tiket IT dengan persetujuan manajer dan tim IT Asset, dan jika laptop rusak perlu dilaporkan dengan kategori 'Hardware Issue'. Informasi mengenai proses *onboarding* secara detail tidak ditemukan dalam *knowledge base*.",
+      "response_time_s": 8.868,
+      "retrieval_s": 0.5,
+      "llm_call_s": 7.915,
+      "other_s": 0.454,
+      "llm_called": true,
+      "embed_attempts": 2,
+      "llm_attempts": 1,
+      "top_faq_ids": "12;19;23",
+      "top_score": 0.7287,
+      "prompt_chars": 2267,
+      "prompt_tokens": 561,
+      "output_tokens": 119,
+      "thinking_tokens": null,
+      "total_tokens": 680,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 12,
+            "score": 0.7287
+          },
+          {
+            "faq_id": 19,
+            "score": 0.7195
+          },
+          {
+            "faq_id": 23,
+            "score": 0.7114
+          }
+        ],
+        "embed_s": [
+          0.498,
+          0.444
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 28] Bagaimana kebijakan penggunaan cuti melahirkan/paternity leave?\nCuti melahirkan diberikan 3 bulan sesuai regulasi, sedangkan cuti paternity diberikan 2 hari kerja bagi karyawan pria.\n\n[FAQ 2] Bagaimana cara mengajukan cuti?\nCuti diajukan melalui portal HR internal minimal 3 hari kerja sebelum tanggal cuti, dan memerlukan persetujuan atasan langsung.\n\n[FAQ 8] Bagaimana cara reset password VPN perusahaan?\nReset password VPN dapat dilakukan mandiri melalui portal self-service IT, atau menghubungi tim IT Support jika akun terkunci.\n\n[FAQ 12] Bagaimana jika lupa password akun laptop kerja?\nHubungi tim IT Support melalui tiket untuk reset password akun laptop, verifikasi identitas akan dilakukan sebelum reset dilakukan.\n\n[FAQ 14] Bagaimana cara mengajukan permintaan laptop baru?\nPermintaan laptop baru diajukan melalui tiket IT dengan justifikasi kebutuhan, dan memerlukan persetujuan manajer serta tim IT Asset.\n\n[FAQ 15] Apa yang harus dilakukan jika laptop kerja rusak?\nLaporkan kerusakan melalui tiket IT dengan kategori 'Hardware Issue', sertakan deskripsi masalah agar tim dapat memberikan unit pengganti sementara jika diperlukan.\n\n[FAQ 19] Apa saja yang perlu disiapkan karyawan baru di hari pertama?\nKaryawan baru perlu membawa dokumen identitas asli untuk verifikasi, dan akan menerima akun email serta akses sistem pada hari pertama.\n\n[FAQ 23] Bagaimana cara mengajukan reimbursement biaya kerja?\nReimbursement diajukan melalui portal HR dengan mengunggah bukti pembayaran, dan diproses dalam siklus payroll berikutnya.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jawab bagian pertanyaan yang ada di Context; untuk bagian yang tidak ada, katakan singkat bahwa informasinya tidak ditemukan.\n- Jika tidak ada satu pun bagian pertanyaan yang terjawab oleh Context, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nTolong jelaskan sedetail-detailnya seluruh kebijakan cuti, reset password, permintaan perangkat, dan proses onboarding sekaligus dalam satu jawaban.",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-12",
+      "category": "Resource/Token",
+      "query": "halo",
+      "expected_behavior_note": "Bandingkan token usage query ini vs EVAL-11 sebagai referensi efisiensi",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.",
+      "response_time_s": 0.561,
+      "retrieval_s": 0.553,
+      "llm_call_s": null,
+      "other_s": 0.008,
+      "llm_called": false,
+      "embed_attempts": 1,
+      "llm_attempts": 0,
+      "top_faq_ids": "6;16;2",
+      "top_score": 0.5834,
+      "prompt_chars": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": null,
+      "observasi_awal": "",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 6,
+            "score": 0.5834
+          },
+          {
+            "faq_id": 16,
+            "score": 0.5751
+          },
+          {
+            "faq_id": 2,
+            "score": 0.5715
+          }
+        ],
+        "embed_s": [
+          0.552
+        ],
+        "prompt": null,
+        "llm_error": null
+      }
+    }
+  ]
+}

@@ -21,6 +21,7 @@ ap.add_argument("--force", action="store_true", help="timpa output yang sudah ad
 ap.add_argument("--only", help="id skenario dipisah koma, mis. EVAL-01,EVAL-10")
 ap.add_argument("--repeat", type=int, default=1, help="ulang seluruh skenario N kali (bergantian, bukan berturut-turut)")
 ap.add_argument("--pause", type=float, default=0.0, help="jeda detik antar request (menghindari rate limit)")
+ap.add_argument("--skip-index", action="store_true", help="jangan bangun index di awal (31 request embedding); untuk skenario tiket saja")
 args = ap.parse_args()
 
 args.scenarios, args.out, args.raw = (str(Path(p).resolve()) for p in (args.scenarios, args.out, args.raw))
@@ -109,11 +110,13 @@ gm.Models.embed_content, gm.AsyncModels.generate_content = _embed, _gen
 ac.BaseApiClient._request_once, ac.BaseApiClient._async_request_once = _once, _aonce
 rag.semantic_search = _search  # answer_from_knowledge_base memanggilnya lewat nama global modul
 
-new_rec()
-t = time.perf_counter()
-rag.build_index()
-cold = {"build_index_s": round(time.perf_counter() - t, 3), "embed_attempts": REC["embed_attempts"]}
-print(f"cold start (build index 31 FAQ): {cold['build_index_s']} dtk, percobaan HTTP: {cold['embed_attempts']}")
+cold = None  # --skip-index: hanya untuk skenario jalur tiket (tanpa embedding)
+if not args.skip_index:
+    new_rec()
+    t = time.perf_counter()
+    rag.build_index()
+    cold = {"build_index_s": round(time.perf_counter() - t, 3), "embed_attempts": REC["embed_attempts"]}
+    print(f"cold start (build index 31 FAQ): {cold['build_index_s']} dtk, percobaan HTTP: {cold['embed_attempts']}")
 
 srv = uvicorn.Server(uvicorn.Config(app, host="127.0.0.1", port=PORT, log_level="warning"))
 srv_thread = threading.Thread(target=srv.run, daemon=True)
