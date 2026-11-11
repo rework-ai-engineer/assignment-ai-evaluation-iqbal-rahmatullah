@@ -18,7 +18,15 @@ ap.add_argument("--scenarios", default=str(HERE / "evaluation_test_scenarios.csv
 ap.add_argument("--out", default=str(HERE / "evaluation_results.csv"))
 ap.add_argument("--raw", default=str(HERE / "raw_results.json"))
 ap.add_argument("--force", action="store_true", help="timpa output yang sudah ada")
+ap.add_argument("--only", help="id skenario dipisah koma, mis. EVAL-01,EVAL-10")
+ap.add_argument("--repeat", type=int, default=1, help="ulang seluruh skenario N kali (bergantian, bukan berturut-turut)")
+ap.add_argument("--pause", type=float, default=0.0, help="jeda detik antar request (menghindari rate limit)")
 args = ap.parse_args()
+
+args.scenarios, args.out, args.raw = (str(Path(p).resolve()) for p in (args.scenarios, args.out, args.raw))
+for p in (args.out, args.raw):
+    if not Path(p).parent.is_dir():
+        sys.exit(f"folder output tidak ada: {Path(p).parent}")
 for p in (args.out, args.raw):
     if Path(p).exists() and not args.force:
         sys.exit(f"{p} sudah ada; pakai --out/--raw lain atau --force (jangan timpa bukti 'before').")
@@ -114,6 +122,11 @@ while not srv.started:
     time.sleep(0.05)
 
 rows = list(csv.reader(open(args.scenarios, encoding="utf-8")))[1:]
+if args.only:
+    rows = [r for r in rows if r[0] in set(args.only.split(","))]
+if not rows:
+    sys.exit("tidak ada skenario terpilih")
+rows = rows * args.repeat
 results = []
 try:
     for r in rows:
@@ -151,6 +164,7 @@ try:
         })
         print(f"{sid} HTTP {http_status} {dt:6.2f}s retr={ret:5.2f} llm={llm:5.2f} "
               f"att(e/l)={REC['embed_attempts']}/{REC['llm_attempts']} tok={REC.get('total_tokens')}  {query[:45]!r}")
+        time.sleep(args.pause)
 finally:
     srv.should_exit = True
     srv_thread.join(timeout=10)
