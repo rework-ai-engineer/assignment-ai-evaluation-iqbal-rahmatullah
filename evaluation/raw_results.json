@@ -1,0 +1,522 @@
+{
+  "meta": {
+    "run_at": "2026-11-11T06:57:48+07:00",
+    "gen_model": "gemini-3.5-flash-lite",
+    "embed_model": "gemini-embedding-001",
+    "min_score": 0.65,
+    "python": "3.12.2",
+    "cold_start": {
+      "build_index_s": 1.931,
+      "embed_attempts": 1
+    }
+  },
+  "results": [
+    {
+      "scenario_id": "EVAL-01",
+      "category": "Relevansi Dasar",
+      "query": "berapa jatah cuti tahunan saya?",
+      "expected_behavior_note": "Sistem menjawab sesuai FAQ cuti (12 hari) dengan akurat",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Halo! Karyawan tetap mendapat jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan.",
+      "response_time_s": 1.705,
+      "retrieval_s": 0.432,
+      "llm_call_s": 1.264,
+      "other_s": 0.009,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "1;7;6",
+      "top_score": 0.7888,
+      "prompt_chars": 906,
+      "prompt_tokens": 257,
+      "output_tokens": 28,
+      "thinking_tokens": null,
+      "total_tokens": 285,
+      "observasi_awal": "Sesuai ekspektasi: 12 hari cuti (FAQ 1), akurat. Diawali 'Halo!' (gaya model, bukan isi KB). FAQ 1 peringkat 1, skor 0,789.",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 1,
+            "score": 0.7888
+          },
+          {
+            "faq_id": 7,
+            "score": 0.7622
+          },
+          {
+            "faq_id": 6,
+            "score": 0.7551
+          }
+        ],
+        "embed_s": [
+          0.423
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 1] Berapa jatah cuti tahunan karyawan tetap?\nKaryawan tetap mendapat jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan.\n\n[FAQ 7] Apakah cuti bersama/libur nasional mengurangi jatah cuti tahunan?\nCuti bersama dan libur nasional tidak mengurangi jatah cuti tahunan karyawan.\n\n[FAQ 6] Bagaimana cara melihat sisa cuti yang saya miliki?\nSisa cuti dapat dilihat secara real-time melalui portal HR pada menu 'Ringkasan Cuti Saya'.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jika Context tidak memuat jawabannya, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nberapa jatah cuti tahunan saya?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-02",
+      "category": "Relevansi Dasar",
+      "query": "gimana cara reset password vpn ya",
+      "expected_behavior_note": "Sistem tetap menemukan FAQ yang tepat meski frasa informal",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Halo! Reset password VPN dapat dilakukan secara mandiri melalui portal self-service IT. Jika akun Anda terkunci, silakan hubungi tim IT Support untuk mendapatkan bantuan.",
+      "response_time_s": 4.482,
+      "retrieval_s": 0.402,
+      "llm_call_s": 4.077,
+      "other_s": 0.003,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "8;13;12",
+      "top_score": 0.7789,
+      "prompt_chars": 985,
+      "prompt_tokens": 244,
+      "output_tokens": 34,
+      "thinking_tokens": null,
+      "total_tokens": 278,
+      "observasi_awal": "Sesuai: FAQ 8 (reset VPN) ditemukan walau frasa informal, isi jawaban cocok dengan FAQ 8. Total 4,48 dtk, hampir semuanya LLM call (4,08 dtk) untuk 34 token keluaran.",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 8,
+            "score": 0.7789
+          },
+          {
+            "faq_id": 13,
+            "score": 0.6997
+          },
+          {
+            "faq_id": 12,
+            "score": 0.6924
+          }
+        ],
+        "embed_s": [
+          0.401
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 8] Bagaimana cara reset password VPN perusahaan?\nReset password VPN dapat dilakukan mandiri melalui portal self-service IT, atau menghubungi tim IT Support jika akun terkunci.\n\n[FAQ 13] Apakah bisa mengakses sistem internal dari luar kantor?\nAkses dari luar kantor memerlukan koneksi VPN aktif yang sudah terinstal pada perangkat kerja resmi.\n\n[FAQ 12] Bagaimana jika lupa password akun laptop kerja?\nHubungi tim IT Support melalui tiket untuk reset password akun laptop, verifikasi identitas akan dilakukan sebelum reset dilakukan.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jika Context tidak memuat jawabannya, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\ngimana cara reset password vpn ya",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-03",
+      "category": "Parafrase/Sinonim",
+      "query": "saya lupa kata sandi laptop kantor, harus gimana?",
+      "expected_behavior_note": "Sistem mengarahkan ke FAQ password laptop yang relevan",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Halo! Silakan hubungi tim IT Support melalui tiket untuk melakukan reset password akun laptop kerja Anda. Proses verifikasi identitas akan dilakukan sebelum reset dilakukan.",
+      "response_time_s": 1.483,
+      "retrieval_s": 0.418,
+      "llm_call_s": 1.061,
+      "other_s": 0.005,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "12;9;8",
+      "top_score": 0.7879,
+      "prompt_chars": 1049,
+      "prompt_tokens": 262,
+      "output_tokens": 31,
+      "thinking_tokens": null,
+      "total_tokens": 293,
+      "observasi_awal": "Sesuai: sinonim 'kata sandi' diarahkan ke FAQ 12 (password laptop) di peringkat 1, skor 0,788; isi jawaban cocok dengan FAQ 12.",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 12,
+            "score": 0.7879
+          },
+          {
+            "faq_id": 9,
+            "score": 0.727
+          },
+          {
+            "faq_id": 8,
+            "score": 0.7232
+          }
+        ],
+        "embed_s": [
+          0.417
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 12] Bagaimana jika lupa password akun laptop kerja?\nHubungi tim IT Support melalui tiket untuk reset password akun laptop, verifikasi identitas akan dilakukan sebelum reset dilakukan.\n\n[FAQ 9] Kenapa saya tidak bisa login ke email perusahaan?\nKegagalan login biasanya disebabkan password kedaluwarsa (wajib diganti setiap 90 hari) atau akun terkunci karena percobaan login yang gagal berulang kali.\n\n[FAQ 8] Bagaimana cara reset password VPN perusahaan?\nReset password VPN dapat dilakukan mandiri melalui portal self-service IT, atau menghubungi tim IT Support jika akun terkunci.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jika Context tidak memuat jawabannya, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nsaya lupa kata sandi laptop kantor, harus gimana?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-04",
+      "category": "Di Luar Cakupan",
+      "query": "apakah kantor menyediakan tempat parkir motor gratis?",
+      "expected_behavior_note": "Sistem mengakui tidak punya informasi tsb,bukan mengarang jawaban (deteksi hallucination)",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.",
+      "response_time_s": 4.354,
+      "retrieval_s": 0.438,
+      "llm_call_s": 3.911,
+      "other_s": 0.004,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "25;13;27",
+      "top_score": 0.6615,
+      "prompt_chars": 1018,
+      "prompt_tokens": 263,
+      "output_tokens": 21,
+      "thinking_tokens": null,
+      "total_tokens": 284,
+      "observasi_awal": "Tidak mengarang (jawaban 'tidak menemukan informasi'), sesuai ekspektasi. Tetapi skor teratas 0,6615 hanya sedikit di atas ambang 0,65, sehingga LLM tetap dipanggil (3,91 dtk, 284 token) hanya untuk menghasilkan penolakan: pencegahan hallucination di sini bertumpu pada instruksi prompt, bukan ambang.",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 25,
+            "score": 0.6615
+          },
+          {
+            "faq_id": 13,
+            "score": 0.6544
+          },
+          {
+            "faq_id": 27,
+            "score": 0.6413
+          }
+        ],
+        "embed_s": [
+          0.438
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 25] Apakah perusahaan menerapkan kebijakan kerja hybrid?\nYa, karyawan dapat bekerja dari rumah maksimal 2 hari per minggu sesuai kesepakatan dengan atasan masing-masing tim.\n\n[FAQ 13] Apakah bisa mengakses sistem internal dari luar kantor?\nAkses dari luar kantor memerlukan koneksi VPN aktif yang sudah terinstal pada perangkat kerja resmi.\n\n[FAQ 27] Apakah ada kebijakan lembur dan kompensasinya?\nLembur yang disetujui atasan akan dikompensasi sesuai regulasi ketenagakerjaan yang berlaku, dihitung berdasarkan jam kerja tambahan yang tercatat.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jika Context tidak memuat jawabannya, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\napakah kantor menyediakan tempat parkir motor gratis?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-05",
+      "category": "Di Luar Cakupan",
+      "query": "siapa nama CEO perusahaan ini?",
+      "expected_behavior_note": "Sistem tidak boleh mengarang nama; harus mengakui keterbatasan informasi",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.",
+      "response_time_s": 11.486,
+      "retrieval_s": 0.409,
+      "llm_call_s": 11.072,
+      "other_s": 0.004,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "24;25;17",
+      "top_score": 0.6503,
+      "prompt_chars": 1035,
+      "prompt_tokens": 263,
+      "output_tokens": 21,
+      "thinking_tokens": null,
+      "total_tokens": 284,
+      "observasi_awal": "Tidak mengarang nama CEO, sesuai ekspektasi. Skor teratas 0,6503 lolos ambang 0,65 dengan selisih 0,0003, jadi LLM dipanggil: 11,07 dtk (paling lambat dari 12 skenario) untuk 21 token keluaran yang isinya hanya penolakan.",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 24,
+            "score": 0.6503
+          },
+          {
+            "faq_id": 25,
+            "score": 0.6332
+          },
+          {
+            "faq_id": 17,
+            "score": 0.6235
+          }
+        ],
+        "embed_s": [
+          0.408
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 24] Kepada siapa saya melapor jika ada masalah dengan atasan langsung?\nMasalah dengan atasan dapat dilaporkan ke HR Business Partner masing-masing departemen atau melalui kanal pengaduan rahasia perusahaan.\n\n[FAQ 25] Apakah perusahaan menerapkan kebijakan kerja hybrid?\nYa, karyawan dapat bekerja dari rumah maksimal 2 hari per minggu sesuai kesepakatan dengan atasan masing-masing tim.\n\n[FAQ 17] Apakah karyawan bisa menginstal software pribadi di laptop kerja?\nInstalasi software di luar daftar yang disetujui perusahaan memerlukan izin tertulis dari tim IT Security terlebih dahulu.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jika Context tidak memuat jawabannya, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nsiapa nama CEO perusahaan ini?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-06",
+      "category": "Tool Call Valid",
+      "query": "apa status TICKET-0005?",
+      "expected_behavior_note": "Sistem mengembalikan status tiket yang sesuai data mock",
+      "http_status": 200,
+      "intent": "ticket_status",
+      "status": "success",
+      "response": "Tiket TICKET-0005: Reset password VPN gagal terus. Status: Diproses. Update terakhir: 2026-08-27.",
+      "response_time_s": 0.008,
+      "retrieval_s": null,
+      "llm_call_s": null,
+      "other_s": 0.008,
+      "llm_called": false,
+      "embed_attempts": 0,
+      "llm_attempts": 0,
+      "top_faq_ids": null,
+      "top_score": null,
+      "prompt_chars": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": null,
+      "observasi_awal": "Sesuai: status TICKET-0005 (Reset password VPN gagal terus, Diproses, 2026-08-27) cocok dengan baris di mock_tickets.csv. 0,008 dtk, tanpa retrieval dan tanpa LLM.",
+      "_raw": {
+        "hits": [],
+        "embed_s": [],
+        "prompt": null,
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-07",
+      "category": "Tool Call Invalid",
+      "query": "apa status TICKET-9999?",
+      "expected_behavior_note": "Sistem memberi pesan informatif,tidak crash/error mentah",
+      "http_status": 200,
+      "intent": "ticket_status",
+      "status": "success",
+      "response": "Tiket TICKET-9999 tidak ditemukan. Pastikan ID tiket benar (format TICKET-XXXX).",
+      "response_time_s": 0.002,
+      "retrieval_s": null,
+      "llm_call_s": null,
+      "other_s": 0.002,
+      "llm_called": false,
+      "embed_attempts": 0,
+      "llm_attempts": 0,
+      "top_faq_ids": null,
+      "top_score": null,
+      "prompt_chars": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": null,
+      "observasi_awal": "Sesuai: TICKET-9999 tidak ada di CSV; sistem membalas pesan informatif 'tidak ditemukan' dengan HTTP 200, tidak crash.",
+      "_raw": {
+        "hits": [],
+        "embed_s": [],
+        "prompt": null,
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-08",
+      "category": "Tool Call Ambigu",
+      "query": "tiket saya gimana ya?",
+      "expected_behavior_note": "Sistem meminta klarifikasi ID tiket,bukan menebak",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.",
+      "response_time_s": 3.55,
+      "retrieval_s": 0.497,
+      "llm_call_s": 3.051,
+      "other_s": 0.002,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "10;15;6",
+      "top_score": 0.663,
+      "prompt_chars": 1005,
+      "prompt_tokens": 259,
+      "output_tokens": 21,
+      "thinking_tokens": null,
+      "total_tokens": 280,
+      "observasi_awal": "TIDAK sesuai ekspektasi (seharusnya meminta ID tiket). Query dirutekan ke faq karena ada kata 'tiket' tetapi tidak ada kata aksi (status/cek/...), skor 0,663 lolos ambang, LLM dipanggil 3,05 dtk, dan pengguna menerima 'tidak menemukan informasi di knowledge base' tanpa petunjuk bahwa ID tiket dibutuhkan.",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 10,
+            "score": 0.663
+          },
+          {
+            "faq_id": 15,
+            "score": 0.6533
+          },
+          {
+            "faq_id": 6,
+            "score": 0.6433
+          }
+        ],
+        "embed_s": [
+          0.496
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 10] Bagaimana cara mendapatkan akses ke sistem internal baru?\nPengajuan akses sistem baru dilakukan melalui tiket IT dengan persetujuan atasan, dan biasanya diproses dalam 1-2 hari kerja.\n\n[FAQ 15] Apa yang harus dilakukan jika laptop kerja rusak?\nLaporkan kerusakan melalui tiket IT dengan kategori 'Hardware Issue', sertakan deskripsi masalah agar tim dapat memberikan unit pengganti sementara jika diperlukan.\n\n[FAQ 6] Bagaimana cara melihat sisa cuti yang saya miliki?\nSisa cuti dapat dilihat secara real-time melalui portal HR pada menu 'Ringkasan Cuti Saya'.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jika Context tidak memuat jawabannya, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\ntiket saya gimana ya?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-09",
+      "category": "Routing Ambigu",
+      "query": "kenapa laptop saya lambat dan gimana cara cek tiket yang saya buat soal itu?",
+      "expected_behavior_note": "Amati intent mana yang dipilih dan apakah masuk akal; catat sebagai temuan kualitatif",
+      "http_status": 200,
+      "intent": "ticket_status",
+      "status": "error",
+      "response": "Mohon sebutkan ID tiket Anda (format TICKET-XXXX), misalnya: \"Cek status TICKET-0005\".",
+      "response_time_s": 0.004,
+      "retrieval_s": null,
+      "llm_call_s": null,
+      "other_s": 0.004,
+      "llm_called": false,
+      "embed_attempts": 0,
+      "llm_attempts": 0,
+      "top_faq_ids": null,
+      "top_score": null,
+      "prompt_chars": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": null,
+      "observasi_awal": "Router memilih ticket_status (ada 'tiket' + 'cek') dan meminta ID tiket; bagian 'kenapa laptop saya lambat' tidak dijawab sama sekali. Sesuai batas desain router (query campuran: aksi menang atas informasi); temuan kualitatif, bukan crash.",
+      "_raw": {
+        "hits": [],
+        "embed_s": [],
+        "prompt": null,
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-10",
+      "category": "Konsistensi",
+      "query": "berapa hari cuti tahunan yang saya dapat?",
+      "expected_behavior_note": "Jawaban harus konsisten dengan EVAL-01 meski kalimat beda",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Halo! Sebagai karyawan tetap, Anda mendapatkan jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan.",
+      "response_time_s": 4.614,
+      "retrieval_s": 0.428,
+      "llm_call_s": 4.183,
+      "other_s": 0.004,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "1;7;3",
+      "top_score": 0.7963,
+      "prompt_chars": 956,
+      "prompt_tokens": 262,
+      "output_tokens": 29,
+      "thinking_tokens": null,
+      "total_tokens": 291,
+      "observasi_awal": "Konsisten dengan EVAL-01 pada satu sampel: sama-sama 12 hari dan syarat masa kerja minimal 3 bulan, kalimat berbeda. Konsistensi diuji lebih lanjut dengan pengulangan di analisis berikutnya.",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 1,
+            "score": 0.7963
+          },
+          {
+            "faq_id": 7,
+            "score": 0.7558
+          },
+          {
+            "faq_id": 3,
+            "score": 0.7541
+          }
+        ],
+        "embed_s": [
+          0.427
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 1] Berapa jatah cuti tahunan karyawan tetap?\nKaryawan tetap mendapat jatah 12 hari cuti tahunan yang dapat diambil setelah masa kerja minimal 3 bulan.\n\n[FAQ 7] Apakah cuti bersama/libur nasional mengurangi jatah cuti tahunan?\nCuti bersama dan libur nasional tidak mengurangi jatah cuti tahunan karyawan.\n\n[FAQ 3] Apakah cuti yang tidak terpakai bisa dibawa ke tahun berikutnya?\nSisa cuti dapat dibawa maksimal 6 hari ke tahun berikutnya, dan harus digunakan dalam kuartal pertama tahun tersebut.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jika Context tidak memuat jawabannya, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nberapa hari cuti tahunan yang saya dapat?",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-11",
+      "category": "Beban Panjang",
+      "query": "Tolong jelaskan sedetail-detailnya seluruh kebijakan cuti, reset password, permintaan perangkat, dan proses onboarding sekaligus dalam satu jawaban.",
+      "expected_behavior_note": "Amati waktu respons dan apakah jawaban tetap relevan atau melebar ke luar konteks",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.",
+      "response_time_s": 1.381,
+      "retrieval_s": 0.464,
+      "llm_call_s": 0.913,
+      "other_s": 0.004,
+      "llm_called": true,
+      "embed_attempts": 1,
+      "llm_attempts": 1,
+      "top_faq_ids": "12;19;23",
+      "top_score": 0.7287,
+      "prompt_chars": 1144,
+      "prompt_tokens": 276,
+      "output_tokens": 21,
+      "thinking_tokens": null,
+      "total_tokens": 297,
+      "observasi_awal": "Tidak melebar ke luar konteks, tetapi menolak menjawab ('tidak menemukan informasi') padahal keempat topik yang diminta ada di KB. Retrieval top-3 (FAQ 12, 19, 23) skor 0,729 lolos ambang; LLM dipanggil (0,91 dtk, 297 token) lalu mengembalikan penolakan. Dugaan: top-3 tidak bisa mencakup empat topik sekaligus (hipotesis, belum diuji). Cepat (1,38 dtk) walau query paling panjang.",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 12,
+            "score": 0.7287
+          },
+          {
+            "faq_id": 19,
+            "score": 0.7195
+          },
+          {
+            "faq_id": 23,
+            "score": 0.7114
+          }
+        ],
+        "embed_s": [
+          0.463
+        ],
+        "prompt": "# Task\nJawab pertanyaan karyawan berdasarkan Context di bawah ini, dan hanya dari Context itu.\n\n# Context\n[FAQ 12] Bagaimana jika lupa password akun laptop kerja?\nHubungi tim IT Support melalui tiket untuk reset password akun laptop, verifikasi identitas akan dilakukan sebelum reset dilakukan.\n\n[FAQ 19] Apa saja yang perlu disiapkan karyawan baru di hari pertama?\nKaryawan baru perlu membawa dokumen identitas asli untuk verifikasi, dan akan menerima akun email serta akses sistem pada hari pertama.\n\n[FAQ 23] Bagaimana cara mengajukan reimbursement biaya kerja?\nReimbursement diajukan melalui portal HR dengan mengunggah bukti pembayaran, dan diproses dalam siklus payroll berikutnya.\n\n# Format\n- Bahasa Indonesia, maksimal 3 kalimat, langsung ke inti.\n- Jangan menambah fakta, angka, atau prosedur yang tidak ada di Context.\n- Jika Context tidak memuat jawabannya, jawab persis: \"Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.\"\n\n# Pertanyaan\nTolong jelaskan sedetail-detailnya seluruh kebijakan cuti, reset password, permintaan perangkat, dan proses onboarding sekaligus dalam satu jawaban.",
+        "llm_error": null
+      }
+    },
+    {
+      "scenario_id": "EVAL-12",
+      "category": "Resource/Token",
+      "query": "halo",
+      "expected_behavior_note": "Bandingkan token usage query ini vs EVAL-11 sebagai referensi efisiensi",
+      "http_status": 200,
+      "intent": "faq",
+      "status": "success",
+      "response": "Maaf, saya tidak menemukan informasi tersebut di knowledge base. Silakan hubungi tim IT atau HR.",
+      "response_time_s": 0.419,
+      "retrieval_s": 0.417,
+      "llm_call_s": null,
+      "other_s": 0.002,
+      "llm_called": false,
+      "embed_attempts": 1,
+      "llm_attempts": 0,
+      "top_faq_ids": "6;16;2",
+      "top_score": 0.5834,
+      "prompt_chars": null,
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": null,
+      "observasi_awal": "Skor teratas 0,583 < 0,65 sehingga LLM tidak dipanggil: 0 token LLM, 0,42 dtk (hanya embedding). Sapaan dibalas pesan 'tidak menemukan informasi' yang kurang pas. Dibanding EVAL-11 (297 token, 1,38 dtk), selisihnya terutama karena ada/tidaknya LLM call; token embedding tidak terukur.",
+      "_raw": {
+        "hits": [
+          {
+            "faq_id": 6,
+            "score": 0.5834
+          },
+          {
+            "faq_id": 16,
+            "score": 0.5751
+          },
+          {
+            "faq_id": 2,
+            "score": 0.5715
+          }
+        ],
+        "embed_s": [
+          0.417
+        ],
+        "prompt": null,
+        "llm_error": null
+      }
+    }
+  ]
+}
